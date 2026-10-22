@@ -121,6 +121,17 @@ export const aiApi = {
     if (!res.ok) throw new ApiError(data.error ?? 'No se pudo guardar la clave', res.status)
     return data as { verified: boolean }
   },
+  /** Modo sin conexión: el servidor no se conecta a nada fuera del equipo (solo IA local). */
+  setOffline: async (offline: boolean) => {
+    const res = await fetch('/api/ai/offline', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ offline }),
+    })
+    const data = await res.json().catch(() => ({}))
+    if (!res.ok) throw new ApiError(data.error ?? 'No se pudo cambiar el modo sin conexión', res.status)
+    return data as { offline: boolean }
+  },
   removeKey: async (provider: CloudProvider) => {
     const res = await fetch(`/api/ai/keys/${provider}`, { method: 'DELETE' })
     if (!res.ok) throw new ApiError('No se pudo quitar la clave', res.status)

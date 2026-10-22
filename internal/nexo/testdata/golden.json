@@ -1,0 +1,2721 @@
+{
+ "cases": [
+  {
+   "id": "x",
+   "type": "note",
+   "title": "simple",
+   "areas": [
+    "simple"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "simple",
+     "limit": "simple"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "simple",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "simple"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo simple\n",
+   "observation": "simple",
+   "year": "simple"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "Con: dos puntos",
+   "areas": [
+    "Con: dos puntos"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "Con: dos puntos",
+     "limit": "Con: dos puntos"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "Con: dos puntos",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "Con: dos puntos"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo Con: dos puntos\n",
+   "observation": "Con: dos puntos",
+   "year": "Con: dos puntos"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "termina:",
+   "areas": [
+    "termina:"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "termina:",
+     "limit": "termina:"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "termina:",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "termina:"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo termina:\n",
+   "observation": "termina:",
+   "year": "termina:"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "a #b",
+   "areas": [
+    "a #b"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "a #b",
+     "limit": "a #b"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "a #b",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "a #b"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo a #b\n",
+   "observation": "a #b",
+   "year": "a #b"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "#empieza",
+   "areas": [
+    "#empieza"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "#empieza",
+     "limit": "#empieza"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "#empieza",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "#empieza"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo #empieza\n",
+   "observation": "#empieza",
+   "year": "#empieza"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "- guion",
+   "areas": [
+    "- guion"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "- guion",
+     "limit": "- guion"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "- guion",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "- guion"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo - guion\n",
+   "observation": "- guion",
+   "year": "- guion"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "-guion",
+   "areas": [
+    "-guion"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "-guion",
+     "limit": "-guion"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "-guion",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "-guion"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo -guion\n",
+   "observation": "-guion",
+   "year": "-guion"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "? x",
+   "areas": [
+    "? x"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "? x",
+     "limit": "? x"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "? x",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "? x"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo ? x\n",
+   "observation": "? x",
+   "year": "? x"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "?x",
+   "areas": [
+    "?x"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "?x",
+     "limit": "?x"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "?x",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "?x"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo ?x\n",
+   "observation": "?x",
+   "year": "?x"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "true",
+   "areas": [
+    "true"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "true",
+     "limit": "true"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "true",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "true"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo true\n",
+   "observation": "true",
+   "year": "true"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "True",
+   "areas": [
+    "True"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "True",
+     "limit": "True"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "True",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "True"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo True\n",
+   "observation": "True",
+   "year": "True"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "null",
+   "areas": [
+    "null"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "null",
+     "limit": "null"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "null",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "null"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo null\n",
+   "observation": "null",
+   "year": "null"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "~",
+   "areas": [
+    "~"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "~",
+     "limit": "~"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "~",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "~"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo ~\n",
+   "observation": "~",
+   "year": "~"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "123",
+   "areas": [
+    "123"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "123",
+     "limit": "123"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "123",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "123"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo 123\n",
+   "observation": "123",
+   "year": "123"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "1975",
+   "areas": [
+    "1975"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "1975",
+     "limit": "1975"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "1975",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "1975"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo 1975\n",
+   "observation": "1975",
+   "year": "1975"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "-5",
+   "areas": [
+    "-5"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "-5",
+     "limit": "-5"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "-5",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "-5"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo -5\n",
+   "observation": "-5",
+   "year": "-5"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "+5",
+   "areas": [
+    "+5"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "+5",
+     "limit": "+5"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "+5",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "+5"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo +5\n",
+   "observation": "+5",
+   "year": "+5"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "0x1F",
+   "areas": [
+    "0x1F"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "0x1F",
+     "limit": "0x1F"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "0x1F",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "0x1F"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo 0x1F\n",
+   "observation": "0x1F",
+   "year": "0x1F"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "0o17",
+   "areas": [
+    "0o17"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "0o17",
+     "limit": "0o17"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "0o17",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "0o17"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo 0o17\n",
+   "observation": "0o17",
+   "year": "0o17"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "1.5",
+   "areas": [
+    "1.5"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "1.5",
+     "limit": "1.5"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "1.5",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "1.5"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo 1.5\n",
+   "observation": "1.5",
+   "year": "1.5"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": ".5",
+   "areas": [
+    ".5"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": ".5",
+     "limit": ".5"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": ".5",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": ".5"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo .5\n",
+   "observation": ".5",
+   "year": ".5"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "1e3",
+   "areas": [
+    "1e3"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "1e3",
+     "limit": "1e3"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "1e3",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "1e3"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo 1e3\n",
+   "observation": "1e3",
+   "year": "1e3"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": ".inf",
+   "areas": [
+    ".inf"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": ".inf",
+     "limit": ".inf"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": ".inf",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": ".inf"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo .inf\n",
+   "observation": ".inf",
+   "year": ".inf"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": ".NaN",
+   "areas": [
+    ".NaN"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": ".NaN",
+     "limit": ".NaN"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": ".NaN",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": ".NaN"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo .NaN\n",
+   "observation": ".NaN",
+   "year": ".NaN"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "2026-10-21",
+   "areas": [
+    "2026-10-21"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "2026-10-21",
+     "limit": "2026-10-21"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "2026-10-21",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "2026-10-21"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo 2026-10-21\n",
+   "observation": "2026-10-21",
+   "year": "2026-10-21"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "con 'simple'",
+   "areas": [
+    "con 'simple'"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "con 'simple'",
+     "limit": "con 'simple'"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "con 'simple'",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "con 'simple'"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo con 'simple'\n",
+   "observation": "con 'simple'",
+   "year": "con 'simple'"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "con \"doble\"",
+   "areas": [
+    "con \"doble\""
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "con \"doble\"",
+     "limit": "con \"doble\""
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "con \"doble\"",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "con \"doble\""
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo con \"doble\"\n",
+   "observation": "con \"doble\"",
+   "year": "con \"doble\""
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "ambas ' y \"",
+   "areas": [
+    "ambas ' y \""
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "ambas ' y \"",
+     "limit": "ambas ' y \""
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "ambas ' y \"",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "ambas ' y \""
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo ambas ' y \"\n",
+   "observation": "ambas ' y \"",
+   "year": "ambas ' y \""
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": " espacio inicial",
+   "areas": [
+    " espacio inicial"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": " espacio inicial",
+     "limit": " espacio inicial"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": " espacio inicial",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": " espacio inicial"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo  espacio inicial\n",
+   "observation": " espacio inicial",
+   "year": " espacio inicial"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "espacio final ",
+   "areas": [
+    "espacio final "
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "espacio final ",
+     "limit": "espacio final "
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "espacio final ",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "espacio final "
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo espacio final \n",
+   "observation": "espacio final ",
+   "year": "espacio final "
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "[corchete",
+   "areas": [
+    "[corchete"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "[corchete",
+     "limit": "[corchete"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "[corchete",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "[corchete"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo [corchete\n",
+   "observation": "[corchete",
+   "year": "[corchete"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "{llave",
+   "areas": [
+    "{llave"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "{llave",
+     "limit": "{llave"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "{llave",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "{llave"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo {llave\n",
+   "observation": "{llave",
+   "year": "{llave"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "*ancla",
+   "areas": [
+    "*ancla"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "*ancla",
+     "limit": "*ancla"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "*ancla",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "*ancla"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo *ancla\n",
+   "observation": "*ancla",
+   "year": "*ancla"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "&ref",
+   "areas": [
+    "&ref"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "&ref",
+     "limit": "&ref"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "&ref",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "&ref"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo &ref\n",
+   "observation": "&ref",
+   "year": "&ref"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "!tag",
+   "areas": [
+    "!tag"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "!tag",
+     "limit": "!tag"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "!tag",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "!tag"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo !tag\n",
+   "observation": "!tag",
+   "year": "!tag"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "|pipe",
+   "areas": [
+    "|pipe"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "|pipe",
+     "limit": "|pipe"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "|pipe",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "|pipe"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo |pipe\n",
+   "observation": "|pipe",
+   "year": "|pipe"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": ">mayor",
+   "areas": [
+    ">mayor"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": ">mayor",
+     "limit": ">mayor"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": ">mayor",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": ">mayor"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo >mayor\n",
+   "observation": ">mayor",
+   "year": ">mayor"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "%pct",
+   "areas": [
+    "%pct"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "%pct",
+     "limit": "%pct"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "%pct",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "%pct"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo %pct\n",
+   "observation": "%pct",
+   "year": "%pct"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "@at",
+   "areas": [
+    "@at"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "@at",
+     "limit": "@at"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "@at",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "@at"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo @at\n",
+   "observation": "@at",
+   "year": "@at"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "`tick",
+   "areas": [
+    "`tick"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "`tick",
+     "limit": "`tick"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "`tick",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "`tick"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo `tick\n",
+   "observation": "`tick",
+   "year": "`tick"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": ",coma",
+   "areas": [
+    ",coma"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": ",coma",
+     "limit": ",coma"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": ",coma",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": ",coma"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo ,coma\n",
+   "observation": ",coma",
+   "year": ",coma"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "a, b",
+   "areas": [
+    "a, b"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "a, b",
+     "limit": "a, b"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "a, b",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "a, b"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo a, b\n",
+   "observation": "a, b",
+   "year": "a, b"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "url: https://x.com",
+   "areas": [
+    "url: https://x.com"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "url: https://x.com",
+     "limit": "url: https://x.com"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "url: https://x.com",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "url: https://x.com"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo url: https://x.com\n",
+   "observation": "url: https://x.com",
+   "year": "url: https://x.com"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "https://x.com/a?b=c#d",
+   "areas": [
+    "https://x.com/a?b=c#d"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "https://x.com/a?b=c#d",
+     "limit": "https://x.com/a?b=c#d"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "https://x.com/a?b=c#d",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "https://x.com/a?b=c#d"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo https://x.com/a?b=c#d\n",
+   "observation": "https://x.com/a?b=c#d",
+   "year": "https://x.com/a?b=c#d"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "línea uno\nlínea dos",
+   "areas": [
+    "línea uno\nlínea dos"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "línea uno\nlínea dos",
+     "limit": "línea uno\nlínea dos"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "línea uno\nlínea dos",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "línea uno\nlínea dos"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo línea uno\nlínea dos\n",
+   "observation": "línea uno\nlínea dos",
+   "year": "línea uno\nlínea dos"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "p1\n\np2",
+   "areas": [
+    "p1\n\np2"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "p1\n\np2",
+     "limit": "p1\n\np2"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "p1\n\np2",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "p1\n\np2"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo p1\n\np2\n",
+   "observation": "p1\n\np2",
+   "year": "p1\n\np2"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "  sangría\nsegunda",
+   "areas": [
+    "  sangría\nsegunda"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "  sangría\nsegunda",
+     "limit": "  sangría\nsegunda"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "  sangría\nsegunda",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "  sangría\nsegunda"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo   sangría\nsegunda\n",
+   "observation": "  sangría\nsegunda",
+   "year": "  sangría\nsegunda"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "a\n\n\nb",
+   "areas": [
+    "a\n\n\nb"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "a\n\n\nb",
+     "limit": "a\n\n\nb"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "a\n\n\nb",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "a\n\n\nb"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo a\n\n\nb\n",
+   "observation": "a\n\n\nb",
+   "year": "a\n\n\nb"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "acentos ñ áéí",
+   "areas": [
+    "acentos ñ áéí"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "acentos ñ áéí",
+     "limit": "acentos ñ áéí"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "acentos ñ áéí",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "acentos ñ áéí"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo acentos ñ áéí\n",
+   "observation": "acentos ñ áéí",
+   "year": "acentos ñ áéí"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "tab\there",
+   "areas": [
+    "tab\there"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "tab\there",
+     "limit": "tab\there"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "tab\there",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "tab\there"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo tab\there\n",
+   "observation": "tab\there",
+   "year": "tab\there"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "ctrl\u0001x",
+   "areas": [
+    "ctrl\u0001x"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "ctrl\u0001x",
+     "limit": "ctrl\u0001x"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "ctrl\u0001x",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "ctrl\u0001x"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo ctrl\u0001x\n",
+   "observation": "ctrl\u0001x",
+   "year": "ctrl\u0001x"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "emoji 🌟",
+   "areas": [
+    "emoji 🌟"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "emoji 🌟",
+     "limit": "emoji 🌟"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "emoji 🌟",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "emoji 🌟"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo emoji 🌟\n",
+   "observation": "emoji 🌟",
+   "year": "emoji 🌟"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "---",
+   "areas": [
+    "---"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "---",
+     "limit": "---"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "---",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "---"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo ---\n",
+   "observation": "---",
+   "year": "---"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "--- doc",
+   "areas": [
+    "--- doc"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "--- doc",
+     "limit": "--- doc"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "--- doc",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "--- doc"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo --- doc\n",
+   "observation": "--- doc",
+   "year": "--- doc"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "...",
+   "areas": [
+    "..."
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "...",
+     "limit": "..."
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "...",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "..."
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo ...\n",
+   "observation": "...",
+   "year": "..."
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "a: b: c",
+   "areas": [
+    "a: b: c"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "a: b: c",
+     "limit": "a: b: c"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "a: b: c",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "a: b: c"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo a: b: c\n",
+   "observation": "a: b: c",
+   "year": "a: b: c"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "clave:valor",
+   "areas": [
+    "clave:valor"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "clave:valor",
+     "limit": "clave:valor"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "clave:valor",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "clave:valor"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo clave:valor\n",
+   "observation": "clave:valor",
+   "year": "clave:valor"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "x :y",
+   "areas": [
+    "x :y"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "x :y",
+     "limit": "x :y"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "x :y",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "x :y"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo x :y\n",
+   "observation": "x :y",
+   "year": "x :y"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "yes",
+   "areas": [
+    "yes"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "yes",
+     "limit": "yes"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "yes",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "yes"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo yes\n",
+   "observation": "yes",
+   "year": "yes"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "no",
+   "areas": [
+    "no"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "no",
+     "limit": "no"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "no",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "no"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo no\n",
+   "observation": "no",
+   "year": "no"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "on",
+   "areas": [
+    "on"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "on",
+     "limit": "on"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "on",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "on"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo on\n",
+   "observation": "on",
+   "year": "on"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "off",
+   "areas": [
+    "off"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "off",
+     "limit": "off"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "off",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "off"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo off\n",
+   "observation": "off",
+   "year": "off"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "Y",
+   "areas": [
+    "Y"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "Y",
+     "limit": "Y"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "Y",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "Y"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo Y\n",
+   "observation": "Y",
+   "year": "Y"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "NULL",
+   "areas": [
+    "NULL"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "NULL",
+     "limit": "NULL"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "NULL",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "NULL"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo NULL\n",
+   "observation": "NULL",
+   "year": "NULL"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "FALSE",
+   "areas": [
+    "FALSE"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "FALSE",
+     "limit": "FALSE"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "FALSE",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "FALSE"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo FALSE\n",
+   "observation": "FALSE",
+   "year": "FALSE"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "0",
+   "areas": [
+    "0"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "0",
+     "limit": "0"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "0",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "0"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo 0\n",
+   "observation": "0",
+   "year": "0"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "00",
+   "areas": [
+    "00"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "00",
+     "limit": "00"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "00",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "00"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo 00\n",
+   "observation": "00",
+   "year": "00"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "1_000",
+   "areas": [
+    "1_000"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "1_000",
+     "limit": "1_000"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "1_000",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "1_000"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo 1_000\n",
+   "observation": "1_000",
+   "year": "1_000"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "1:30",
+   "areas": [
+    "1:30"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "1:30",
+     "limit": "1:30"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "1:30",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "1:30"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo 1:30\n",
+   "observation": "1:30",
+   "year": "1:30"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "12:30:00",
+   "areas": [
+    "12:30:00"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "12:30:00",
+     "limit": "12:30:00"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "12:30:00",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "12:30:00"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo 12:30:00\n",
+   "observation": "12:30:00",
+   "year": "12:30:00"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "a\\b",
+   "areas": [
+    "a\\b"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "a\\b",
+     "limit": "a\\b"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "a\\b",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "a\\b"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo a\\b\n",
+   "observation": "a\\b",
+   "year": "a\\b"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "\"empieza",
+   "areas": [
+    "\"empieza"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "\"empieza",
+     "limit": "\"empieza"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "\"empieza",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "\"empieza"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo \"empieza\n",
+   "observation": "\"empieza",
+   "year": "\"empieza"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "'empieza",
+   "areas": [
+    "'empieza"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "'empieza",
+     "limit": "'empieza"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "'empieza",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "'empieza"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo 'empieza\n",
+   "observation": "'empieza",
+   "year": "'empieza"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "termina#",
+   "areas": [
+    "termina#"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "termina#",
+     "limit": "termina#"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "termina#",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "termina#"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo termina#\n",
+   "observation": "termina#",
+   "year": "termina#"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "medio # comentario",
+   "areas": [
+    "medio # comentario"
+   ],
+   "sources": [],
+   "items": [],
+   "connections": [
+    {
+     "to": "y",
+     "type": "resembles",
+     "why": "medio # comentario",
+     "limit": "medio # comentario"
+    }
+   ],
+   "interpretations": [
+    {
+     "text": "medio # comentario",
+     "source": "src",
+     "ref": ""
+    }
+   ],
+   "analogies": [
+    {
+     "text": "medio # comentario"
+    }
+   ],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": "Cuerpo medio # comentario\n",
+   "observation": "medio # comentario",
+   "year": "medio # comentario"
+  },
+  {
+   "id": "x",
+   "type": "note",
+   "title": "T",
+   "areas": [],
+   "sources": [],
+   "items": [],
+   "connections": [],
+   "interpretations": [],
+   "analogies": [],
+   "created": "2026-01-01",
+   "updated": "2026-01-02",
+   "body": ""
+  }
+ ],
+ "outputs": [
+  "---\nid: x\ntype: note\ntitle: simple\nyear: simple\nareas:\n  - simple\nobservation: simple\ninterpretations:\n  - text: simple\n    source: src\nanalogies:\n  - text: simple\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: simple\n    limit: simple\n---\n\nCuerpo simple\n",
+  "---\nid: x\ntype: note\ntitle: \"Con: dos puntos\"\nyear: \"Con: dos puntos\"\nareas:\n  - \"Con: dos puntos\"\nobservation: \"Con: dos puntos\"\ninterpretations:\n  - text: \"Con: dos puntos\"\n    source: src\nanalogies:\n  - text: \"Con: dos puntos\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"Con: dos puntos\"\n    limit: \"Con: dos puntos\"\n---\n\nCuerpo Con: dos puntos\n",
+  "---\nid: x\ntype: note\ntitle: \"termina:\"\nyear: \"termina:\"\nareas:\n  - \"termina:\"\nobservation: \"termina:\"\ninterpretations:\n  - text: \"termina:\"\n    source: src\nanalogies:\n  - text: \"termina:\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"termina:\"\n    limit: \"termina:\"\n---\n\nCuerpo termina:\n",
+  "---\nid: x\ntype: note\ntitle: \"a #b\"\nyear: \"a #b\"\nareas:\n  - \"a #b\"\nobservation: \"a #b\"\ninterpretations:\n  - text: \"a #b\"\n    source: src\nanalogies:\n  - text: \"a #b\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"a #b\"\n    limit: \"a #b\"\n---\n\nCuerpo a #b\n",
+  "---\nid: x\ntype: note\ntitle: \"#empieza\"\nyear: \"#empieza\"\nareas:\n  - \"#empieza\"\nobservation: \"#empieza\"\ninterpretations:\n  - text: \"#empieza\"\n    source: src\nanalogies:\n  - text: \"#empieza\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"#empieza\"\n    limit: \"#empieza\"\n---\n\nCuerpo #empieza\n",
+  "---\nid: x\ntype: note\ntitle: \"- guion\"\nyear: \"- guion\"\nareas:\n  - \"- guion\"\nobservation: \"- guion\"\ninterpretations:\n  - text: \"- guion\"\n    source: src\nanalogies:\n  - text: \"- guion\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"- guion\"\n    limit: \"- guion\"\n---\n\nCuerpo - guion\n",
+  "---\nid: x\ntype: note\ntitle: -guion\nyear: -guion\nareas:\n  - -guion\nobservation: -guion\ninterpretations:\n  - text: -guion\n    source: src\nanalogies:\n  - text: -guion\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: -guion\n    limit: -guion\n---\n\nCuerpo -guion\n",
+  "---\nid: x\ntype: note\ntitle: \"? x\"\nyear: \"? x\"\nareas:\n  - \"? x\"\nobservation: \"? x\"\ninterpretations:\n  - text: \"? x\"\n    source: src\nanalogies:\n  - text: \"? x\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"? x\"\n    limit: \"? x\"\n---\n\nCuerpo ? x\n",
+  "---\nid: x\ntype: note\ntitle: ?x\nyear: ?x\nareas:\n  - ?x\nobservation: ?x\ninterpretations:\n  - text: ?x\n    source: src\nanalogies:\n  - text: ?x\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: ?x\n    limit: ?x\n---\n\nCuerpo ?x\n",
+  "---\nid: x\ntype: note\ntitle: \"true\"\nyear: \"true\"\nareas:\n  - \"true\"\nobservation: \"true\"\ninterpretations:\n  - text: \"true\"\n    source: src\nanalogies:\n  - text: \"true\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"true\"\n    limit: \"true\"\n---\n\nCuerpo true\n",
+  "---\nid: x\ntype: note\ntitle: \"True\"\nyear: \"True\"\nareas:\n  - \"True\"\nobservation: \"True\"\ninterpretations:\n  - text: \"True\"\n    source: src\nanalogies:\n  - text: \"True\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"True\"\n    limit: \"True\"\n---\n\nCuerpo True\n",
+  "---\nid: x\ntype: note\ntitle: \"null\"\nyear: \"null\"\nareas:\n  - \"null\"\nobservation: \"null\"\ninterpretations:\n  - text: \"null\"\n    source: src\nanalogies:\n  - text: \"null\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"null\"\n    limit: \"null\"\n---\n\nCuerpo null\n",
+  "---\nid: x\ntype: note\ntitle: \"~\"\nyear: \"~\"\nareas:\n  - \"~\"\nobservation: \"~\"\ninterpretations:\n  - text: \"~\"\n    source: src\nanalogies:\n  - text: \"~\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"~\"\n    limit: \"~\"\n---\n\nCuerpo ~\n",
+  "---\nid: x\ntype: note\ntitle: \"123\"\nyear: \"123\"\nareas:\n  - \"123\"\nobservation: \"123\"\ninterpretations:\n  - text: \"123\"\n    source: src\nanalogies:\n  - text: \"123\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"123\"\n    limit: \"123\"\n---\n\nCuerpo 123\n",
+  "---\nid: x\ntype: note\ntitle: \"1975\"\nyear: \"1975\"\nareas:\n  - \"1975\"\nobservation: \"1975\"\ninterpretations:\n  - text: \"1975\"\n    source: src\nanalogies:\n  - text: \"1975\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"1975\"\n    limit: \"1975\"\n---\n\nCuerpo 1975\n",
+  "---\nid: x\ntype: note\ntitle: \"-5\"\nyear: \"-5\"\nareas:\n  - \"-5\"\nobservation: \"-5\"\ninterpretations:\n  - text: \"-5\"\n    source: src\nanalogies:\n  - text: \"-5\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"-5\"\n    limit: \"-5\"\n---\n\nCuerpo -5\n",
+  "---\nid: x\ntype: note\ntitle: \"+5\"\nyear: \"+5\"\nareas:\n  - \"+5\"\nobservation: \"+5\"\ninterpretations:\n  - text: \"+5\"\n    source: src\nanalogies:\n  - text: \"+5\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"+5\"\n    limit: \"+5\"\n---\n\nCuerpo +5\n",
+  "---\nid: x\ntype: note\ntitle: \"0x1F\"\nyear: \"0x1F\"\nareas:\n  - \"0x1F\"\nobservation: \"0x1F\"\ninterpretations:\n  - text: \"0x1F\"\n    source: src\nanalogies:\n  - text: \"0x1F\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"0x1F\"\n    limit: \"0x1F\"\n---\n\nCuerpo 0x1F\n",
+  "---\nid: x\ntype: note\ntitle: \"0o17\"\nyear: \"0o17\"\nareas:\n  - \"0o17\"\nobservation: \"0o17\"\ninterpretations:\n  - text: \"0o17\"\n    source: src\nanalogies:\n  - text: \"0o17\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"0o17\"\n    limit: \"0o17\"\n---\n\nCuerpo 0o17\n",
+  "---\nid: x\ntype: note\ntitle: \"1.5\"\nyear: \"1.5\"\nareas:\n  - \"1.5\"\nobservation: \"1.5\"\ninterpretations:\n  - text: \"1.5\"\n    source: src\nanalogies:\n  - text: \"1.5\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"1.5\"\n    limit: \"1.5\"\n---\n\nCuerpo 1.5\n",
+  "---\nid: x\ntype: note\ntitle: \".5\"\nyear: \".5\"\nareas:\n  - \".5\"\nobservation: \".5\"\ninterpretations:\n  - text: \".5\"\n    source: src\nanalogies:\n  - text: \".5\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \".5\"\n    limit: \".5\"\n---\n\nCuerpo .5\n",
+  "---\nid: x\ntype: note\ntitle: \"1e3\"\nyear: \"1e3\"\nareas:\n  - \"1e3\"\nobservation: \"1e3\"\ninterpretations:\n  - text: \"1e3\"\n    source: src\nanalogies:\n  - text: \"1e3\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"1e3\"\n    limit: \"1e3\"\n---\n\nCuerpo 1e3\n",
+  "---\nid: x\ntype: note\ntitle: \".inf\"\nyear: \".inf\"\nareas:\n  - \".inf\"\nobservation: \".inf\"\ninterpretations:\n  - text: \".inf\"\n    source: src\nanalogies:\n  - text: \".inf\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \".inf\"\n    limit: \".inf\"\n---\n\nCuerpo .inf\n",
+  "---\nid: x\ntype: note\ntitle: \".NaN\"\nyear: \".NaN\"\nareas:\n  - \".NaN\"\nobservation: \".NaN\"\ninterpretations:\n  - text: \".NaN\"\n    source: src\nanalogies:\n  - text: \".NaN\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \".NaN\"\n    limit: \".NaN\"\n---\n\nCuerpo .NaN\n",
+  "---\nid: x\ntype: note\ntitle: 2026-10-21\nyear: 2026-10-21\nareas:\n  - 2026-10-21\nobservation: 2026-10-21\ninterpretations:\n  - text: 2026-10-21\n    source: src\nanalogies:\n  - text: 2026-10-21\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: 2026-10-21\n    limit: 2026-10-21\n---\n\nCuerpo 2026-10-21\n",
+  "---\nid: x\ntype: note\ntitle: con 'simple'\nyear: con 'simple'\nareas:\n  - con 'simple'\nobservation: con 'simple'\ninterpretations:\n  - text: con 'simple'\n    source: src\nanalogies:\n  - text: con 'simple'\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: con 'simple'\n    limit: con 'simple'\n---\n\nCuerpo con 'simple'\n",
+  "---\nid: x\ntype: note\ntitle: con \"doble\"\nyear: con \"doble\"\nareas:\n  - con \"doble\"\nobservation: con \"doble\"\ninterpretations:\n  - text: con \"doble\"\n    source: src\nanalogies:\n  - text: con \"doble\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: con \"doble\"\n    limit: con \"doble\"\n---\n\nCuerpo con \"doble\"\n",
+  "---\nid: x\ntype: note\ntitle: ambas ' y \"\nyear: ambas ' y \"\nareas:\n  - ambas ' y \"\nobservation: ambas ' y \"\ninterpretations:\n  - text: ambas ' y \"\n    source: src\nanalogies:\n  - text: ambas ' y \"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: ambas ' y \"\n    limit: ambas ' y \"\n---\n\nCuerpo ambas ' y \"\n",
+  "---\nid: x\ntype: note\ntitle: \" espacio inicial\"\nyear: \" espacio inicial\"\nareas:\n  - \" espacio inicial\"\nobservation: \" espacio inicial\"\ninterpretations:\n  - text: \" espacio inicial\"\n    source: src\nanalogies:\n  - text: \" espacio inicial\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \" espacio inicial\"\n    limit: \" espacio inicial\"\n---\n\nCuerpo  espacio inicial\n",
+  "---\nid: x\ntype: note\ntitle: \"espacio final \"\nyear: \"espacio final \"\nareas:\n  - \"espacio final \"\nobservation: \"espacio final \"\ninterpretations:\n  - text: \"espacio final \"\n    source: src\nanalogies:\n  - text: \"espacio final \"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"espacio final \"\n    limit: \"espacio final \"\n---\n\nCuerpo espacio final\n",
+  "---\nid: x\ntype: note\ntitle: \"[corchete\"\nyear: \"[corchete\"\nareas:\n  - \"[corchete\"\nobservation: \"[corchete\"\ninterpretations:\n  - text: \"[corchete\"\n    source: src\nanalogies:\n  - text: \"[corchete\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"[corchete\"\n    limit: \"[corchete\"\n---\n\nCuerpo [corchete\n",
+  "---\nid: x\ntype: note\ntitle: \"{llave\"\nyear: \"{llave\"\nareas:\n  - \"{llave\"\nobservation: \"{llave\"\ninterpretations:\n  - text: \"{llave\"\n    source: src\nanalogies:\n  - text: \"{llave\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"{llave\"\n    limit: \"{llave\"\n---\n\nCuerpo {llave\n",
+  "---\nid: x\ntype: note\ntitle: \"*ancla\"\nyear: \"*ancla\"\nareas:\n  - \"*ancla\"\nobservation: \"*ancla\"\ninterpretations:\n  - text: \"*ancla\"\n    source: src\nanalogies:\n  - text: \"*ancla\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"*ancla\"\n    limit: \"*ancla\"\n---\n\nCuerpo *ancla\n",
+  "---\nid: x\ntype: note\ntitle: \"&ref\"\nyear: \"&ref\"\nareas:\n  - \"&ref\"\nobservation: \"&ref\"\ninterpretations:\n  - text: \"&ref\"\n    source: src\nanalogies:\n  - text: \"&ref\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"&ref\"\n    limit: \"&ref\"\n---\n\nCuerpo &ref\n",
+  "---\nid: x\ntype: note\ntitle: \"!tag\"\nyear: \"!tag\"\nareas:\n  - \"!tag\"\nobservation: \"!tag\"\ninterpretations:\n  - text: \"!tag\"\n    source: src\nanalogies:\n  - text: \"!tag\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"!tag\"\n    limit: \"!tag\"\n---\n\nCuerpo !tag\n",
+  "---\nid: x\ntype: note\ntitle: \"|pipe\"\nyear: \"|pipe\"\nareas:\n  - \"|pipe\"\nobservation: \"|pipe\"\ninterpretations:\n  - text: \"|pipe\"\n    source: src\nanalogies:\n  - text: \"|pipe\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"|pipe\"\n    limit: \"|pipe\"\n---\n\nCuerpo |pipe\n",
+  "---\nid: x\ntype: note\ntitle: \">mayor\"\nyear: \">mayor\"\nareas:\n  - \">mayor\"\nobservation: \">mayor\"\ninterpretations:\n  - text: \">mayor\"\n    source: src\nanalogies:\n  - text: \">mayor\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \">mayor\"\n    limit: \">mayor\"\n---\n\nCuerpo >mayor\n",
+  "---\nid: x\ntype: note\ntitle: \"%pct\"\nyear: \"%pct\"\nareas:\n  - \"%pct\"\nobservation: \"%pct\"\ninterpretations:\n  - text: \"%pct\"\n    source: src\nanalogies:\n  - text: \"%pct\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"%pct\"\n    limit: \"%pct\"\n---\n\nCuerpo %pct\n",
+  "---\nid: x\ntype: note\ntitle: \"@at\"\nyear: \"@at\"\nareas:\n  - \"@at\"\nobservation: \"@at\"\ninterpretations:\n  - text: \"@at\"\n    source: src\nanalogies:\n  - text: \"@at\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"@at\"\n    limit: \"@at\"\n---\n\nCuerpo @at\n",
+  "---\nid: x\ntype: note\ntitle: \"`tick\"\nyear: \"`tick\"\nareas:\n  - \"`tick\"\nobservation: \"`tick\"\ninterpretations:\n  - text: \"`tick\"\n    source: src\nanalogies:\n  - text: \"`tick\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"`tick\"\n    limit: \"`tick\"\n---\n\nCuerpo `tick\n",
+  "---\nid: x\ntype: note\ntitle: \",coma\"\nyear: \",coma\"\nareas:\n  - \",coma\"\nobservation: \",coma\"\ninterpretations:\n  - text: \",coma\"\n    source: src\nanalogies:\n  - text: \",coma\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \",coma\"\n    limit: \",coma\"\n---\n\nCuerpo ,coma\n",
+  "---\nid: x\ntype: note\ntitle: a, b\nyear: a, b\nareas:\n  - a, b\nobservation: a, b\ninterpretations:\n  - text: a, b\n    source: src\nanalogies:\n  - text: a, b\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: a, b\n    limit: a, b\n---\n\nCuerpo a, b\n",
+  "---\nid: x\ntype: note\ntitle: \"url: https://x.com\"\nyear: \"url: https://x.com\"\nareas:\n  - \"url: https://x.com\"\nobservation: \"url: https://x.com\"\ninterpretations:\n  - text: \"url: https://x.com\"\n    source: src\nanalogies:\n  - text: \"url: https://x.com\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"url: https://x.com\"\n    limit: \"url: https://x.com\"\n---\n\nCuerpo url: https://x.com\n",
+  "---\nid: x\ntype: note\ntitle: https://x.com/a?b=c#d\nyear: https://x.com/a?b=c#d\nareas:\n  - https://x.com/a?b=c#d\nobservation: https://x.com/a?b=c#d\ninterpretations:\n  - text: https://x.com/a?b=c#d\n    source: src\nanalogies:\n  - text: https://x.com/a?b=c#d\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: https://x.com/a?b=c#d\n    limit: https://x.com/a?b=c#d\n---\n\nCuerpo https://x.com/a?b=c#d\n",
+  "---\nid: x\ntype: note\ntitle: |-\n  línea uno\n  línea dos\nyear: |-\n  línea uno\n  línea dos\nareas:\n  - |-\n    línea uno\n    línea dos\nobservation: |-\n  línea uno\n  línea dos\ninterpretations:\n  - text: |-\n      línea uno\n      línea dos\n    source: src\nanalogies:\n  - text: |-\n      línea uno\n      línea dos\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: |-\n      línea uno\n      línea dos\n    limit: |-\n      línea uno\n      línea dos\n---\n\nCuerpo línea uno\nlínea dos\n",
+  "---\nid: x\ntype: note\ntitle: |-\n  p1\n\n  p2\nyear: |-\n  p1\n\n  p2\nareas:\n  - |-\n    p1\n\n    p2\nobservation: |-\n  p1\n\n  p2\ninterpretations:\n  - text: |-\n      p1\n\n      p2\n    source: src\nanalogies:\n  - text: |-\n      p1\n\n      p2\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: |-\n      p1\n\n      p2\n    limit: |-\n      p1\n\n      p2\n---\n\nCuerpo p1\n\np2\n",
+  "---\nid: x\ntype: note\ntitle: |2-\n    sangría\n  segunda\nyear: |2-\n    sangría\n  segunda\nareas:\n  - |2-\n      sangría\n    segunda\nobservation: |2-\n    sangría\n  segunda\ninterpretations:\n  - text: |2-\n        sangría\n      segunda\n    source: src\nanalogies:\n  - text: |2-\n        sangría\n      segunda\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: |2-\n        sangría\n      segunda\n    limit: |2-\n        sangría\n      segunda\n---\n\nCuerpo   sangría\nsegunda\n",
+  "---\nid: x\ntype: note\ntitle: |-\n  a\n\n\n  b\nyear: |-\n  a\n\n\n  b\nareas:\n  - |-\n    a\n\n\n    b\nobservation: |-\n  a\n\n\n  b\ninterpretations:\n  - text: |-\n      a\n\n\n      b\n    source: src\nanalogies:\n  - text: |-\n      a\n\n\n      b\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: |-\n      a\n\n\n      b\n    limit: |-\n      a\n\n\n      b\n---\n\nCuerpo a\n\n\nb\n",
+  "---\nid: x\ntype: note\ntitle: acentos ñ áéí\nyear: acentos ñ áéí\nareas:\n  - acentos ñ áéí\nobservation: acentos ñ áéí\ninterpretations:\n  - text: acentos ñ áéí\n    source: src\nanalogies:\n  - text: acentos ñ áéí\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: acentos ñ áéí\n    limit: acentos ñ áéí\n---\n\nCuerpo acentos ñ áéí\n",
+  "---\nid: x\ntype: note\ntitle: tab\there\nyear: tab\there\nareas:\n  - tab\there\nobservation: tab\there\ninterpretations:\n  - text: tab\there\n    source: src\nanalogies:\n  - text: tab\there\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: tab\there\n    limit: tab\there\n---\n\nCuerpo tab\there\n",
+  "---\nid: x\ntype: note\ntitle: \"ctrl\\x01x\"\nyear: \"ctrl\\x01x\"\nareas:\n  - \"ctrl\\x01x\"\nobservation: \"ctrl\\x01x\"\ninterpretations:\n  - text: \"ctrl\\x01x\"\n    source: src\nanalogies:\n  - text: \"ctrl\\x01x\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"ctrl\\x01x\"\n    limit: \"ctrl\\x01x\"\n---\n\nCuerpo ctrl\u0001x\n",
+  "---\nid: x\ntype: note\ntitle: emoji 🌟\nyear: emoji 🌟\nareas:\n  - emoji 🌟\nobservation: emoji 🌟\ninterpretations:\n  - text: emoji 🌟\n    source: src\nanalogies:\n  - text: emoji 🌟\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: emoji 🌟\n    limit: emoji 🌟\n---\n\nCuerpo emoji 🌟\n",
+  "---\nid: x\ntype: note\ntitle: ---\nyear: ---\nareas:\n  - ---\nobservation: ---\ninterpretations:\n  - text: ---\n    source: src\nanalogies:\n  - text: ---\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: ---\n    limit: ---\n---\n\nCuerpo ---\n",
+  "---\nid: x\ntype: note\ntitle: --- doc\nyear: --- doc\nareas:\n  - --- doc\nobservation: --- doc\ninterpretations:\n  - text: --- doc\n    source: src\nanalogies:\n  - text: --- doc\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: --- doc\n    limit: --- doc\n---\n\nCuerpo --- doc\n",
+  "---\nid: x\ntype: note\ntitle: ...\nyear: ...\nareas:\n  - ...\nobservation: ...\ninterpretations:\n  - text: ...\n    source: src\nanalogies:\n  - text: ...\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: ...\n    limit: ...\n---\n\nCuerpo ...\n",
+  "---\nid: x\ntype: note\ntitle: \"a: b: c\"\nyear: \"a: b: c\"\nareas:\n  - \"a: b: c\"\nobservation: \"a: b: c\"\ninterpretations:\n  - text: \"a: b: c\"\n    source: src\nanalogies:\n  - text: \"a: b: c\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"a: b: c\"\n    limit: \"a: b: c\"\n---\n\nCuerpo a: b: c\n",
+  "---\nid: x\ntype: note\ntitle: clave:valor\nyear: clave:valor\nareas:\n  - clave:valor\nobservation: clave:valor\ninterpretations:\n  - text: clave:valor\n    source: src\nanalogies:\n  - text: clave:valor\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: clave:valor\n    limit: clave:valor\n---\n\nCuerpo clave:valor\n",
+  "---\nid: x\ntype: note\ntitle: x :y\nyear: x :y\nareas:\n  - x :y\nobservation: x :y\ninterpretations:\n  - text: x :y\n    source: src\nanalogies:\n  - text: x :y\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: x :y\n    limit: x :y\n---\n\nCuerpo x :y\n",
+  "---\nid: x\ntype: note\ntitle: yes\nyear: yes\nareas:\n  - yes\nobservation: yes\ninterpretations:\n  - text: yes\n    source: src\nanalogies:\n  - text: yes\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: yes\n    limit: yes\n---\n\nCuerpo yes\n",
+  "---\nid: x\ntype: note\ntitle: no\nyear: no\nareas:\n  - no\nobservation: no\ninterpretations:\n  - text: no\n    source: src\nanalogies:\n  - text: no\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: no\n    limit: no\n---\n\nCuerpo no\n",
+  "---\nid: x\ntype: note\ntitle: on\nyear: on\nareas:\n  - on\nobservation: on\ninterpretations:\n  - text: on\n    source: src\nanalogies:\n  - text: on\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: on\n    limit: on\n---\n\nCuerpo on\n",
+  "---\nid: x\ntype: note\ntitle: off\nyear: off\nareas:\n  - off\nobservation: off\ninterpretations:\n  - text: off\n    source: src\nanalogies:\n  - text: off\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: off\n    limit: off\n---\n\nCuerpo off\n",
+  "---\nid: x\ntype: note\ntitle: Y\nyear: Y\nareas:\n  - Y\nobservation: Y\ninterpretations:\n  - text: Y\n    source: src\nanalogies:\n  - text: Y\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: Y\n    limit: Y\n---\n\nCuerpo Y\n",
+  "---\nid: x\ntype: note\ntitle: \"NULL\"\nyear: \"NULL\"\nareas:\n  - \"NULL\"\nobservation: \"NULL\"\ninterpretations:\n  - text: \"NULL\"\n    source: src\nanalogies:\n  - text: \"NULL\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"NULL\"\n    limit: \"NULL\"\n---\n\nCuerpo NULL\n",
+  "---\nid: x\ntype: note\ntitle: \"FALSE\"\nyear: \"FALSE\"\nareas:\n  - \"FALSE\"\nobservation: \"FALSE\"\ninterpretations:\n  - text: \"FALSE\"\n    source: src\nanalogies:\n  - text: \"FALSE\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"FALSE\"\n    limit: \"FALSE\"\n---\n\nCuerpo FALSE\n",
+  "---\nid: x\ntype: note\ntitle: \"0\"\nyear: \"0\"\nareas:\n  - \"0\"\nobservation: \"0\"\ninterpretations:\n  - text: \"0\"\n    source: src\nanalogies:\n  - text: \"0\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"0\"\n    limit: \"0\"\n---\n\nCuerpo 0\n",
+  "---\nid: x\ntype: note\ntitle: \"00\"\nyear: \"00\"\nareas:\n  - \"00\"\nobservation: \"00\"\ninterpretations:\n  - text: \"00\"\n    source: src\nanalogies:\n  - text: \"00\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"00\"\n    limit: \"00\"\n---\n\nCuerpo 00\n",
+  "---\nid: x\ntype: note\ntitle: 1_000\nyear: 1_000\nareas:\n  - 1_000\nobservation: 1_000\ninterpretations:\n  - text: 1_000\n    source: src\nanalogies:\n  - text: 1_000\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: 1_000\n    limit: 1_000\n---\n\nCuerpo 1_000\n",
+  "---\nid: x\ntype: note\ntitle: 1:30\nyear: 1:30\nareas:\n  - 1:30\nobservation: 1:30\ninterpretations:\n  - text: 1:30\n    source: src\nanalogies:\n  - text: 1:30\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: 1:30\n    limit: 1:30\n---\n\nCuerpo 1:30\n",
+  "---\nid: x\ntype: note\ntitle: 12:30:00\nyear: 12:30:00\nareas:\n  - 12:30:00\nobservation: 12:30:00\ninterpretations:\n  - text: 12:30:00\n    source: src\nanalogies:\n  - text: 12:30:00\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: 12:30:00\n    limit: 12:30:00\n---\n\nCuerpo 12:30:00\n",
+  "---\nid: x\ntype: note\ntitle: a\\b\nyear: a\\b\nareas:\n  - a\\b\nobservation: a\\b\ninterpretations:\n  - text: a\\b\n    source: src\nanalogies:\n  - text: a\\b\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: a\\b\n    limit: a\\b\n---\n\nCuerpo a\\b\n",
+  "---\nid: x\ntype: note\ntitle: '\"empieza'\nyear: '\"empieza'\nareas:\n  - '\"empieza'\nobservation: '\"empieza'\ninterpretations:\n  - text: '\"empieza'\n    source: src\nanalogies:\n  - text: '\"empieza'\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: '\"empieza'\n    limit: '\"empieza'\n---\n\nCuerpo \"empieza\n",
+  "---\nid: x\ntype: note\ntitle: \"'empieza\"\nyear: \"'empieza\"\nareas:\n  - \"'empieza\"\nobservation: \"'empieza\"\ninterpretations:\n  - text: \"'empieza\"\n    source: src\nanalogies:\n  - text: \"'empieza\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"'empieza\"\n    limit: \"'empieza\"\n---\n\nCuerpo 'empieza\n",
+  "---\nid: x\ntype: note\ntitle: termina#\nyear: termina#\nareas:\n  - termina#\nobservation: termina#\ninterpretations:\n  - text: termina#\n    source: src\nanalogies:\n  - text: termina#\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: termina#\n    limit: termina#\n---\n\nCuerpo termina#\n",
+  "---\nid: x\ntype: note\ntitle: \"medio # comentario\"\nyear: \"medio # comentario\"\nareas:\n  - \"medio # comentario\"\nobservation: \"medio # comentario\"\ninterpretations:\n  - text: \"medio # comentario\"\n    source: src\nanalogies:\n  - text: \"medio # comentario\"\ncreated: 2026-01-01\nupdated: 2026-01-02\nconnections:\n  - to: y\n    type: resembles\n    why: \"medio # comentario\"\n    limit: \"medio # comentario\"\n---\n\nCuerpo medio # comentario\n",
+  "---\nid: x\ntype: note\ntitle: T\ncreated: 2026-01-01\nupdated: 2026-01-02\n---\n"
+ ]
+}

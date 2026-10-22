@@ -9,3 +9,4 @@ dist/
 # Contenido personal: no se publica
 vault/
 exportacion_*.md
+bin/

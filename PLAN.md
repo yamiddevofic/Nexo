@@ -21,7 +21,7 @@ Cada conexión registra su **tipo**, **por qué** existe (obligatorio), su **lí
 
 ```
 ┌──────────────────────┐   HTTP (JSON)   ┌───────────────────────┐   fs   ┌──────────────┐
-│  web/  React + Vite  │ ──────────────▶ │  server/  Node + Hono │ ─────▶ │  vault/*.md  │
+│  web/  React + Vite  │ ──────────────▶ │  cmd/nexo  (Go)       │ ─────▶ │  vault/*.md  │
 │  UI, editor, panel   │                 │  repositorio + índice │        │  (tus notas) │
 │  de conexiones       │                 │  en memoria           │        └──────────────┘
 └──────────────────────┘                 └───────────────────────┘
@@ -31,15 +31,13 @@ Cada conexión registra su **tipo**, **por qué** existe (obligatorio), su **lí
 
 - **Fuente de verdad:** los archivos `.md`. Si borras la app, tus notas siguen siendo legibles y se pueden abrir con Obsidian.
 - **Índice en memoria:** al arrancar, el servidor lee todo el vault y construye las conexiones inversas (*backlinks*) y el índice de búsqueda. Con cientos o pocos miles de notas, esto tarda milisegundos.
-- **Interfaz `VaultRepository`:** separa la lógica de dominio de *dónde* se guardan los datos para poder cambiar después a Tauri, SQLite como índice, etc.
+- **Servidor en Go (desde octubre de 2026):** reescrito desde Node con el mismo comportamiento, verificado por la batería de contrato (`contract/`) y por archivos de referencia que garantizan que el Markdown se escribe byte a byte igual. Un único binario, sin dependencias en tiempo de ejecución.
+- **Interfaz `Repository`:** separa la lógica de dominio de *dónde* se guardan los datos para poder cambiar después a Tauri, SQLite como índice, etc.
 
-### Librerías propuestas
+### Librerías
 
-- `hono` + `@hono/node-server`: API local pequeña.
-- `yaml`: leer y escribir el frontmatter (sin convertir las fechas en objetos).
-- `zod`: validar el esquema de cada nota y cada conexión; los mismos tipos se comparten entre `web` y `server`.
-- `minisearch`: búsqueda de texto completo en memoria.
-- `vitest`: pruebas de dominio y almacenamiento.
+- Servidor (Go): biblioteca estándar para HTTP; `gopkg.in/yaml.v3` (frontmatter), `fsnotify` (cambios externos), `go-keyring` (claves), `anthropic-sdk-go` (Claude). La búsqueda (BM25 con prefijos y erratas) y la validación son propias.
+- `vitest`: pruebas de contrato de la API, por HTTP.
 - `cmdk` + `@radix-ui/react-dialog`: paleta de comandos, buscador y diálogos accesibles.
 - `@tanstack/react-query`, `wouter`, `react-markdown`: datos, rutas y lectura.
 - Más adelante: `cytoscape` o `react-force-graph`, para el grafo.

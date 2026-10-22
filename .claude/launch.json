@@ -4,8 +4,19 @@
     {
       "name": "nexo",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "port": 5173
+    },
+    {
+      "name": "nexo-api",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "scripts/dev-api.mjs"
+      ],
+      "port": 4322
     }
   ]
 }

@@ -2923,6 +2923,70 @@ select {
   line-height: 1.45;
 }
 
+.offline-toggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--border);
+  cursor: pointer;
+}
+
+.offline-toggle > span {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Interruptor: un checkbox con aspecto de switch, accesible con teclado. */
+.offline-toggle input {
+  appearance: none;
+  flex: none;
+  position: relative;
+  width: 30px;
+  height: 18px;
+  margin: 1px 0 0;
+  border-radius: 999px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.offline-toggle input::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--text-2);
+  transition: transform 0.15s, background 0.15s;
+}
+
+.offline-toggle input:checked {
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.offline-toggle input:checked::after {
+  transform: translateX(12px);
+  background: var(--bg);
+}
+
+.offline-toggle input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.offline-toggle input:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 .ai-index {
   padding-top: 8px;
   border-top: 1px solid var(--border);
@@ -3814,4 +3878,9 @@ a.cite:hover {
     animation: none !important;
     transition: none !important;
   }
+}
+
+.segmented button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }

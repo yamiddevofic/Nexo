@@ -5,14 +5,17 @@ Tus notas son archivos Markdown normales dentro de `vault/`, que también puedes
 
 ## Uso
 
+Requisitos: Node 20+ (para compilar la interfaz) y Go 1.24+ (el servidor).
+
 ```bash
 npm install
 npm start        # compila y abre en http://localhost:4321
 ```
 
-Para desarrollar, con recarga en caliente: `npm run dev` (http://localhost:5173).
+`npm start` deja un único binario en `bin/nexo`, que se puede ejecutar directamente.
+Para desarrollar, con recarga en caliente: `npm run dev` (http://localhost:5173); el servidor Go se recompila y reinicia al guardar.
 
-Otras órdenes: `npm test`, `npm run typecheck`.
+Otras órdenes: `npm test` (pruebas de Go y batería de contrato HTTP), `npm run typecheck`.
 Para usar otra carpeta como vault: `NEXO_VAULT=/ruta/a/mi/vault npm start`.
 
 ## Atajos
@@ -48,6 +51,10 @@ ollama pull embeddinggemma
 
 Para redactar usa cualquier modelo de Ollama (por defecto `gemma4:e4b`; se elige en el panel de IA). Para usar un modelo en la nube (Claude, OpenAI, Gemini, OpenRouter, Groq, DeepSeek o Mistral), pega tu clave en el panel de IA → Nube. Con Claude, el texto de las notas implicadas se envía a Anthropic; los embeddings siguen siendo locales y se guardan en `~/.cache/nexo/`.
 
+### Modo sin conexión
+
+En el panel de IA, **Modo sin conexión** garantiza que nada salga de tu equipo: la nube queda desactivada y solo se usa la IA local (Ollama). Las notas, la búsqueda y el grafo funcionan siempre sin Internet. El modo se recuerda entre arranques (`~/.config/nexo/settings.json`); también se puede forzar con `NEXO_OFFLINE=1`.
+
 ## Seguridad y privacidad
 
 - El servidor solo escucha en `127.0.0.1` y rechaza peticiones de otras webs: valida `Host` (contra *DNS rebinding*), `Origin` y `Sec-Fetch-Site`, y exige JSON en las escrituras.
@@ -57,13 +64,16 @@ Para redactar usa cualquier modelo de Ollama (por defecto `gemma4:e4b`; se elige
 ## Arquitectura
 
 ```
-web/      React + Vite: interfaz
-server/   Node + Hono: API local, repositorio de Markdown, índice en memoria
-server/ai IA: proveedores (Ollama / Claude), embeddings y casos de uso
-shared/   esquemas (zod) y textos compartidos
-vault/    tus notas
+web/             React + Vite: interfaz
+cmd/nexo/        servidor (Go): arranque, vigilancia del vault, interfaz compilada
+internal/nexo/   dominio: notas, validación, Markdown, repositorio, índice y búsqueda
+internal/ai/     IA: proveedores (Ollama, Claude, compatibles con OpenAI), embeddings y casos de uso
+internal/server/ HTTP: rutas, seguridad
+shared/          tipos y textos compartidos con la interfaz
+contract/        pruebas de contrato de la API (por HTTP, contra el binario)
+vault/           tus notas
 ```
 
-`server/repository.ts` define la interfaz `VaultRepository`. Para pasar a Tauri o a otro almacenamiento solo hace falta otra implementación de esa interfaz.
+`internal/nexo/repository.go` define la interfaz `Repository`. Para pasar a Tauri o a otro almacenamiento solo hace falta otra implementación de esa interfaz.
 
 Más detalle en [PLAN.md](PLAN.md).

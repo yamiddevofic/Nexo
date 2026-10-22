@@ -1,140 +1,74 @@
-import { z } from 'zod'
-
-// El vocabulario (constantes y tipos) vive en vocab.ts, sin dependencias, para que la
-// interfaz pueda usarlo sin cargar zod. Aquí se reexporta por comodidad.
+// Tipos de los datos que intercambian la interfaz y el servidor (Go). La validación vive en el
+// servidor (internal/nexo/validate.go); aquí solo se describen las formas.
+// El vocabulario (constantes y tipos) vive en vocab.ts; aquí se reexporta por comodidad.
 export * from './vocab'
-import { EPISTEMIC, NOTE_TYPES, ORIGINS, RELATION_TYPES, REVIEW } from './vocab'
-import type { AiProvider, CloudProvider, Epistemic, NoteType, RelationType } from './vocab'
+import type { AiProvider, CloudProvider, Epistemic, NoteType, Origin, RelationType, Review } from './vocab'
 
-// ── Esquemas ───────────────────────────────────────────────────
-
-const id = z
-  .string()
-  .min(1)
-  .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'El id debe ser un slug: minúsculas, números y guiones')
-
-const optionalText = z
-  .string()
-  .trim()
-  .optional()
-  .transform((v) => (v ? v : undefined))
-
-export const ConnectionSchema = z
-  .object({
-    to: id,
-    type: z.enum(RELATION_TYPES),
-    why: z.string().trim().min(1, 'Explica por qué existe esta conexión'),
-    limit: optionalText,
-    /** Qué se da por sentado al afirmar esta relación (supuesto oculto). */
-    assumption: optionalText,
-    epistemic: z.enum(EPISTEMIC).optional(),
-    review: z.enum(REVIEW).optional(),
-    /** `ia` cuando la conexión nació como sugerencia de la IA (aunque luego la hayas revisado). */
-    origin: z.enum(ORIGINS).optional(),
-  })
-  .superRefine((c, ctx) => {
-    if (c.type === 'resembles' && !c.limit) {
-      ctx.addIssue({
-        code: 'custom',
-        path: ['limit'],
-        message: 'Toda analogía tiene un límite: indica dónde deja de funcionar',
-      })
-    }
-  })
-export type Connection = z.infer<typeof ConnectionSchema>
-export type ConnectionInput = z.input<typeof ConnectionSchema>
-
-/** Fecha ISO (AAAA-MM-DD). Acepta Date por si un editor externo escribe fechas sin comillas. */
-const isoDate = z.preprocess(
-  (v) => (v instanceof Date ? v.toISOString().slice(0, 10) : v),
-  z.string().regex(/^\d{4}-\d{2}-\d{2}/),
-)
+export type Connection = {
+  to: string
+  type: RelationType
+  /** Por qué existe la conexión (obligatorio). */
+  why: string
+  /** Dónde deja de valer la relación (obligatorio en las analogías). */
+  limit?: string
+  /** Qué se da por sentado al afirmar esta relación (supuesto oculto). */
+  assumption?: string
+  epistemic?: Epistemic
+  review?: Review
+  /** `ia` cuando la conexión nació como sugerencia de la IA (aunque luego la hayas revisado). */
+  origin?: Origin
+}
+export type ConnectionInput = Connection
 
 /** Interpretación documentada de un símbolo: siempre que se pueda, con su fuente. */
-export const InterpretationSchema = z.object({
-  text: z.string().trim().min(1, 'Escribe la interpretación'),
-  source: id.optional(),
-  /** Página, capítulo o lugar de la fuente. */
-  ref: optionalText,
-})
-export type Interpretation = z.infer<typeof InterpretationSchema>
+export type Interpretation = { text: string; source?: string; ref?: string }
 
 /** Analogía propia: una asociación personal, con el punto donde deja de funcionar. */
-export const AnalogySchema = z.object({
-  text: z.string().trim().min(1, 'Escribe la analogía'),
-  limit: optionalText,
-})
-export type Analogy = z.infer<typeof AnalogySchema>
+export type Analogy = { text: string; limit?: string }
 
-export const NoteMetaSchema = z.object({
-  id,
-  type: z.enum(NOTE_TYPES),
-  title: z.string().trim().min(1, 'La nota necesita un título'),
-  areas: z.array(z.string()).default([]),
-  epistemic: z.enum(EPISTEMIC).optional(),
-  review: z.enum(REVIEW).optional(),
-  origin: z.enum(ORIGINS).optional(),
-  sources: z.array(id).default([]),
+export type NoteMeta = {
+  id: string
+  type: NoteType
+  title: string
+  areas: string[]
+  epistemic?: Epistemic
+  review?: Review
+  origin?: Origin
+  sources: string[]
   // Control de calidad del pensamiento
-  assumptions: optionalText,
-  counterevidence: optionalText,
-  scope: optionalText,
-  created: isoDate,
-  updated: isoDate,
-  connections: z.array(ConnectionSchema).default([]),
+  assumptions?: string
+  counterevidence?: string
+  scope?: string
+  created: string
+  updated: string
+  connections: Connection[]
   // Fuentes
-  author: optionalText,
-  year: z.preprocess((v) => (v === '' || v == null ? undefined : String(v)), z.string().optional()),
-  url: optionalText,
-  kind: optionalText,
+  author?: string
+  year?: string
+  url?: string
+  kind?: string
   // Investigaciones
-  question: optionalText,
-  items: z.array(id).default([]),
+  question?: string
+  items: string[]
   // Símbolos: observación, contexto, interpretaciones y analogías, separadas a propósito.
-  tradition: optionalText,
-  image: optionalText,
-  observation: optionalText,
-  context: optionalText,
-  interpretations: z.array(InterpretationSchema).default([]),
-  analogies: z.array(AnalogySchema).default([]),
-})
-export type NoteMeta = z.infer<typeof NoteMetaSchema>
+  tradition?: string
+  image?: string
+  observation?: string
+  context?: string
+  interpretations: Interpretation[]
+  analogies: Analogy[]
+}
 
 export type Note = NoteMeta & { body: string }
 
-/** Campos editables de una nota (sin id, fechas ni conexiones, que tienen su propio flujo). */
-export const NoteEditSchema = NoteMetaSchema.pick({
-  type: true,
-  title: true,
-  areas: true,
-  epistemic: true,
-  review: true,
-  assumptions: true,
-  counterevidence: true,
-  scope: true,
-  origin: true,
-  sources: true,
-  author: true,
-  year: true,
-  url: true,
-  kind: true,
-  question: true,
-  items: true,
-  tradition: true,
-  image: true,
-  observation: true,
-  context: true,
-  interpretations: true,
-  analogies: true,
-})
-  .partial()
-  .extend({ body: z.string().optional() })
-export type NoteEdit = z.input<typeof NoteEditSchema>
+type EditableKey =
+  | 'type' | 'title' | 'areas' | 'epistemic' | 'review' | 'assumptions' | 'counterevidence' | 'scope' | 'origin'
+  | 'sources' | 'author' | 'url' | 'kind' | 'question' | 'items' | 'tradition' | 'image' | 'observation'
+  | 'context' | 'interpretations' | 'analogies'
 
-export const NoteCreateSchema = NoteEditSchema.extend({
-  title: z.string().trim().min(1, 'La nota necesita un título'),
-})
-export type NoteCreate = z.input<typeof NoteCreateSchema>
+/** Campos editables de una nota (sin id, fechas ni conexiones, que tienen su propio flujo). */
+export type NoteEdit = Partial<Pick<NoteMeta, EditableKey>> & { year?: string | number; body?: string }
+export type NoteCreate = NoteEdit & { title: string }
 
 // ── Formas que devuelve la API ─────────────────────────────────
 
@@ -184,13 +118,12 @@ export type Overview = {
 
 // ── IA ─────────────────────────────────────────────────────────
 
-
 /** Proveedor elegido y, para Ollama, el modelo local concreto. */
 export type AiChoice = { provider: AiProvider; model?: string }
 
 export type AiStatus = {
   ollama: { url: string; reachable: boolean; models: string[]; embedModel: string; genModel: string }
-  /** Proveedores en la nube: si hay clave en el entorno y su modelo por defecto. Nunca incluye la clave. */
+  /** Proveedores en la nube: si hay clave y su modelo por defecto. Nunca incluye la clave. */
   cloud: {
     id: CloudProvider
     configured: boolean
@@ -203,6 +136,8 @@ export type AiStatus = {
   }[]
   /** Dónde guarda Nexo las claves: llavero del sistema o archivo privado. */
   keyStorage: 'keyring' | 'file' | 'memory'
+  /** Modo sin conexión: solo IA local; nada sale del equipo. */
+  offline: boolean
   index: { notes: number; embedded: number; building: boolean }
 }
 

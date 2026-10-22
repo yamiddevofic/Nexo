@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import * as Popover from '@radix-ui/react-popover'
-import { Cloud, Cpu, KeyRound, Sparkles, X } from 'lucide-react'
+import { Cloud, Cpu, KeyRound, Sparkles, WifiOff, X } from 'lucide-react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import type { CloudProvider } from '../../../shared/schema'
 import { PROVIDER_LABELS } from '../../../shared/labels'
@@ -45,19 +45,33 @@ export function AiBadge({ model, title = 'Sugerido por IA' }: { model?: string; 
 export function AiSettings({ compact }: { compact?: boolean }) {
   const choice = useAiChoice()
   const { data: status } = useAiStatus()
-  const local = choice.provider === 'ollama'
+  const offline = !!status?.offline
+  const local = choice.provider === 'ollama' || offline
   const cloudEntries = status?.cloud ?? []
   const cloud = cloudEntries.find((c) => c.id === choice.provider)
   const firstCloud = cloudEntries.find((c) => c.configured)?.id ?? 'claude'
   const cloudModels = useCloudModels(local ? 'claude' : (choice.provider as CloudProvider), !local && !!cloud?.configured)
   const model = choice.model ?? (local ? status?.ollama.genModel : cloud?.model)
   const label = local ? (model ?? 'Local') : `${PROVIDER_LABELS[choice.provider]}`
+  const client = useQueryClient()
+  const toggleOffline = useMutation({
+    mutationFn: (next: boolean) => aiApi.setOffline(next),
+    onSuccess: ({ offline: next }) => {
+      // Sin conexión solo queda la IA local: se cambia la elección para que todo siga funcionando.
+      if (next && choice.provider !== 'ollama') setAiChoice({ provider: 'ollama' })
+      client.invalidateQueries({ predicate: (q) => String(q.queryKey[0]).startsWith('ai-') })
+    },
+  })
 
   return (
     <Popover.Root>
       <Popover.Trigger asChild>
-        <button type="button" className={`ai-trigger ${compact ? 'compact' : ''}`} title="Ajustes de IA">
-          {local ? <Cpu size={15} /> : <Cloud size={15} />}
+        <button
+          type="button"
+          className={`ai-trigger ${compact ? 'compact' : ''}`}
+          title={offline ? 'Ajustes de IA · sin conexión: solo IA local' : 'Ajustes de IA'}
+        >
+          {offline ? <WifiOff size={15} /> : local ? <Cpu size={15} /> : <Cloud size={15} />}
           {!compact && <span>{label}</span>}
           <span className={`status-dot ${statusTone(choice.provider, status)}`} />
         </button>
@@ -89,6 +103,8 @@ export function AiSettings({ compact }: { compact?: boolean }) {
               role="radio"
               aria-checked={!local}
               className={!local ? 'selected' : ''}
+              disabled={offline}
+              title={offline ? 'Desactiva el modo sin conexión para usar la nube' : undefined}
               onClick={() => {
                 if (local) setAiChoice({ provider: firstCloud })
               }}
@@ -164,6 +180,25 @@ export function AiSettings({ compact }: { compact?: boolean }) {
             </div>
           )}
 
+          <label className="offline-toggle">
+            <input
+              type="checkbox"
+              role="switch"
+              checked={offline}
+              disabled={!status || toggleOffline.isPending}
+              onChange={(e) => toggleOffline.mutate(e.target.checked)}
+            />
+            <span>
+              <strong>Modo sin conexión</strong>
+              <span className="muted small">
+                {offline
+                  ? 'Nada sale de tu equipo. La nube está desactivada; solo se usa la IA local.'
+                  : 'Garantiza que nada salga de tu equipo: solo IA local, sin servicios en la nube.'}
+              </span>
+            </span>
+          </label>
+          {toggleOffline.isError && <ErrorText>{toggleOffline.error.message}</ErrorText>}
+
           <p className="ai-index muted small">
             Embeddings locales ({status?.ollama.embedModel ?? '…'}):{' '}
             {!status?.ollama.reachable
@@ -183,7 +218,7 @@ export function AiSettings({ compact }: { compact?: boolean }) {
 function statusTone(provider: string, status?: ReturnType<typeof useAiStatus>['data']) {
   if (!status) return 'unknown'
   if (!status.ollama.reachable || !embedModelInstalled(status)) return 'bad'
-  if (provider !== 'ollama' && !status.cloud.find((c) => c.id === provider)?.configured) return 'bad'
+  if (provider !== 'ollama' && !status.offline && !status.cloud.find((c) => c.id === provider)?.configured) return 'bad'
   return 'ok'
 }
 
