@@ -35,7 +35,9 @@ export function SymbolSections({ detail, editHref }: { detail: NoteDetail; editH
               const src = i.source ? refs[i.source] : undefined
               return (
                 <li key={n}>
-                  <p className="interp-text">{i.text}</p>
+                  <div className="interp-text">
+                    <Markdown compact>{i.text}</Markdown>
+                  </div>
                   {src ? (
                     <Link href={`/n/${src.id}`} className="interp-source">
                       — {src.byline ? `${src.byline.split(' · ')[0]}, ` : ''}
@@ -61,7 +63,9 @@ export function SymbolSections({ detail, editHref }: { detail: NoteDetail; editH
           <ul className="analogies">
             {note.analogies.map((a, n) => (
               <li key={n}>
-                <p className="interp-text">{a.text}</p>
+                <div className="interp-text">
+                  <Markdown compact>{a.text}</Markdown>
+                </div>
                 {a.limit && (
                   <p className="conn-limit">
                     <span>Límite</span>

@@ -1,14 +1,16 @@
-import { Suspense, lazy, useCallback, useEffect, useLayoutEffect, useState } from 'react'
+import { Suspense, lazy, useCallback, useLayoutEffect, useState } from 'react'
 import { Link, Route, Switch, useLocation } from 'wouter'
-import { Home as HomeIcon, MessagesSquare, Moon, Plus, Search, Sun, Waypoints } from 'lucide-react'
+import { Home as HomeIcon, MessagesSquare, Moon, Plus, Search, Settings as SettingsIcon, Sun, Waypoints } from 'lucide-react'
 import type { NoteType } from '../../shared/schema'
 import { NOTE_TYPES } from '../../shared/vocab'
 import { TYPE_LABELS } from '../../shared/labels'
 import { CommandPalette } from './components/CommandPalette'
+import { ErrorBoundary } from './components/ErrorBoundary'
 import { Kbd, Loading, TYPE_ROUTES, TypeIcon } from './components/ui'
 import { modKey, useHotkey, useOverview } from './hooks'
 import { AiSettings } from './components/AiBits'
 import { useAskBusy } from './aiStore'
+import { setTheme, useTheme } from './theme'
 import { Home } from './pages/Home'
 import { NoteList } from './pages/NoteList'
 
@@ -17,6 +19,7 @@ const Ask = lazy(() => import('./pages/Ask').then((m) => ({ default: m.Ask })))
 const Graph = lazy(() => import('./pages/Graph').then((m) => ({ default: m.Graph })))
 const NoteEditor = lazy(() => import('./pages/NoteEditor').then((m) => ({ default: m.NoteEditor })))
 const NotePage = lazy(() => import('./pages/NotePage').then((m) => ({ default: m.NotePage })))
+const Settings = lazy(() => import('./pages/Settings').then((m) => ({ default: m.Settings })))
 const SymbolCatalog = lazy(() => import('./pages/SymbolCatalog').then((m) => ({ default: m.SymbolCatalog })))
 
 export function App() {
@@ -78,16 +81,27 @@ export function App() {
             <Plus size={16} /> Nueva nota
           </Link>
           <AiSettings compact />
+          <Link
+            href="/ajustes"
+            className={`icon-btn ${location === '/ajustes' ? 'active' : ''}`}
+            aria-label="Ajustes"
+            aria-current={location === '/ajustes' ? 'page' : undefined}
+            title="Ajustes"
+          >
+            <SettingsIcon size={17} />
+          </Link>
           <ThemeToggle />
         </div>
       </nav>
 
       <main className="main">
+        <ErrorBoundary resetKey={location}>
         <Suspense fallback={<Loading />}>
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/grafo" component={Graph} />
           <Route path="/preguntar" component={Ask} />
+          <Route path="/ajustes" component={Settings} />
           <Route path="/simbolos" component={SymbolCatalog} />
           {NOTE_TYPES.filter((t) => t !== 'symbol').map((t) => (
             <Route key={t} path={TYPE_ROUTES[t]}>
@@ -105,6 +119,7 @@ export function App() {
           </Route>
         </Switch>
         </Suspense>
+        </ErrorBoundary>
       </main>
 
       <CommandPalette open={palette} onOpenChange={setPalette} />
@@ -141,33 +156,10 @@ function NavLink({
 }
 
 function ThemeToggle() {
-  const [theme, setTheme] = useState<'light' | 'dark' | null>(() => {
-    try {
-      return (localStorage.getItem('nexo-theme') as 'light' | 'dark' | null) ?? null
-    } catch {
-      return null
-    }
-  })
-  const systemDark = typeof matchMedia !== 'undefined' && matchMedia('(prefers-color-scheme: dark)').matches
-  const dark = theme ? theme === 'dark' : systemDark
-
-  useEffect(() => {
-    if (theme) document.documentElement.dataset.theme = theme
-    else delete document.documentElement.dataset.theme
-  }, [theme])
-
-  const toggle = () => {
-    const next = dark ? 'light' : 'dark'
-    setTheme(next)
-    try {
-      localStorage.setItem('nexo-theme', next)
-    } catch {
-      /* el tema se mantiene solo en esta sesión */
-    }
-  }
-
+  const { dark } = useTheme()
+  const label = dark ? 'Tema claro' : 'Tema oscuro'
   return (
-    <button type="button" className="icon-btn" onClick={toggle} aria-label={dark ? 'Tema claro' : 'Tema oscuro'} title={dark ? 'Tema claro' : 'Tema oscuro'}>
+    <button type="button" className="icon-btn" onClick={() => setTheme(dark ? 'light' : 'dark')} aria-label={label} title={label}>
       {dark ? <Sun size={17} /> : <Moon size={17} />}
     </button>
   )

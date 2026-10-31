@@ -6,6 +6,8 @@ import type {
   AiStatus,
   AskEvent,
   AskTurn,
+  Classification,
+  ClassifyInput,
   CloudProvider,
   ConnectionDraft,
   CritiqueResult,
@@ -140,6 +142,8 @@ export const aiApi = {
     post<SuggestionsResult>('/api/ai/suggest', { noteId, ...choice }, signal),
   connectionDraft: (from: string, to: string, type: RelationType | undefined, choice: AiChoice, signal?: AbortSignal) =>
     post<ConnectionDraft>('/api/ai/connection-draft', { from, to, type, ...choice }, signal),
+  classify: (input: ClassifyInput, choice: AiChoice, ai: boolean, signal?: AbortSignal) =>
+    post<Classification>('/api/ai/classify', { ...input, ...choice, ai }, signal),
   critique: (noteId: string, choice: AiChoice, signal?: AbortSignal) =>
     post<CritiqueResult>('/api/ai/critique', { noteId, ...choice }, signal),
 

@@ -119,8 +119,8 @@ func TestSyncFileIgnoresOwnWritesAndAppliesExternalOnes(t *testing.T) {
 	}
 	os.Remove(filepath.Join(dir, rel))
 	svc.SyncFile(rel)
-	if len(svc.List("")) != 0 {
-		t.Fatal("debía quedar vacía")
+	if len(svc.List("")) != 0 || len(svc.LoadErrors()) != 0 {
+		t.Fatalf("debía quedar vacía y sin errores: %v", svc.LoadErrors())
 	}
 }
 

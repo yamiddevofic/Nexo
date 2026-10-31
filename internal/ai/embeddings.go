@@ -286,6 +286,17 @@ func (s *Store) SimilarTo(noteID string, exclude map[string]bool, limit int) []S
 	return out[:min(limit, len(out))]
 }
 
+// Centroids: el vector medio de cada nota. No se deben modificar.
+func (s *Store) Centroids() map[string][]float32 {
+	s.mu.RLock()
+	defer s.mu.RUnlock()
+	out := make(map[string][]float32, len(s.entries))
+	for id, e := range s.entries {
+		out[id] = e.centroid
+	}
+	return out
+}
+
 // Chunks: todos los fragmentos de una nota, en orden.
 func (s *Store) Chunks(noteID string) []string {
 	s.mu.RLock()

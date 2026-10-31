@@ -3,6 +3,7 @@ import type {
   Note,
   NoteCreate,
   Graph,
+  Library,
   NoteDetail,
   NoteEdit,
   NoteSummary,
@@ -38,6 +39,7 @@ const enc = encodeURIComponent
 
 export const api = {
   overview: () => request<Overview>('GET', '/overview'),
+  library: () => request<Library>('GET', '/library'),
   list: (type?: NoteType) => request<NoteSummary[]>('GET', `/notes${type ? `?type=${type}` : ''}`),
   get: (id: string) => request<NoteDetail>('GET', `/notes/${enc(id)}`),
   graph: () => request<Graph>('GET', '/graph'),

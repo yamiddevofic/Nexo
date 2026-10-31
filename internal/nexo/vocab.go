@@ -34,6 +34,11 @@ var Review = []string{"sin-revisar", "pendiente-evidencia", "respaldada", "cuest
 // Origins: procedencia; solo se marca lo que no escribiste tú.
 var Origins = []string{"ia"}
 
+var DefaultAreas = []string{
+	"filosofia-epistemologia", "simbolos-arte-religion", "historia-hermeneutica",
+	"psicologia-cognicion", "ciencia-sistemas", "programacion-diseno",
+}
+
 // TypeFolders: carpeta del vault donde vive cada tipo de nota.
 var TypeFolders = map[string]string{
 	"note":     "notas",

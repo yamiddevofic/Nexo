@@ -2,9 +2,9 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import { Link } from 'wouter'
 
-export function Markdown({ children }: { children: string }) {
+export function Markdown({ children, compact }: { children: string; compact?: boolean }) {
   return (
-    <div className="prose">
+    <div className={`prose ${compact ? 'prose-compact' : ''}`}>
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{

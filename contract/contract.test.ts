@@ -310,6 +310,19 @@ describe('lectura agregada', () => {
   })
 })
 
+describe('biblioteca', () => {
+  it('informa de la carpeta del vault y de los archivos ilegibles', async () => {
+    const roto = path.join(vault, 'notas', 'roto.md')
+    await writeFile(roto, '---\ntype: inventado\n---\n')
+    expect(
+      await waitFor(async () => (await api('GET', '/library')).json.errors.some((e: any) => e.file === 'notas/roto.md')),
+    ).toBe(true)
+    expect((await api('GET', '/library')).json.vault).toBe(vault)
+    await rm(roto)
+    expect(await waitFor(async () => (await api('GET', '/library')).json.errors.length === 0)).toBe(true)
+  })
+})
+
 describe('archivos externos', () => {
   it('detecta notas creadas, editadas y borradas fuera de Nexo', async () => {
     await mkdir(path.join(vault, 'conceptos'), { recursive: true })
@@ -415,6 +428,25 @@ describe('IA', () => {
     expect((await api('POST', '/ai/ask', { question: ' ' })).status).toBe(400)
   })
 
+  it('clasifica por reglas sin llamar al modelo y usa la IA solo en lo dudoso', async () => {
+    const before = chatRequests.length
+    const rules = await api('POST', '/ai/classify', { title: 'Una nota sobre esto', body: 'Este olor me recuerda a una casa antigua, nada más.' })
+    expect(rules.status).toBe(200)
+    expect(rules.json.epistemic).toMatchObject({ value: 'asociacion', by: 'reglas', reason: expect.stringContaining('me recuerda') })
+    expect(rules.json.uncertain).toEqual(['areas'])
+    expect(chatRequests.length).toBe(before)
+
+    nextReply = () => JSON.stringify({ areas: ['psicologia-cognicion'], areas_reason: 'Habla de la memoria' })
+    const ai = await api('POST', '/ai/classify', { title: 'Una nota sobre esto', body: 'Este olor me recuerda a una casa antigua, nada más.', ai: true })
+    expect(ai.json.areas[0]).toMatchObject({ value: 'psicologia-cognicion', by: 'ia' })
+    expect(ai.json).toMatchObject({ uncertain: [], model: 'fake-llm · local' })
+    expect(chatRequests.length).toBe(before + 1)
+    const props = (chatRequests.at(-1) as any).format.properties
+    expect(Object.keys(props).sort()).toEqual(['areas', 'areas_reason'])
+
+    expect((await api('POST', '/ai/classify', { title: 'x', provider: 'inventado' })).status).toBe(400)
+  })
+
   it('en modo sin conexión no sale nada del equipo', async () => {
     expect((await api('PUT', '/ai/offline', { offline: 'si' })).status).toBe(400)
     expect((await api('PUT', '/ai/offline', { offline: true })).json).toEqual({ offline: true })
@@ -423,6 +455,7 @@ describe('IA', () => {
     expect(cloud.status).toBe(400)
     expect(cloud.json.error).toContain('sin conexión')
     expect((await api('GET', '/ai/models?provider=openai')).status).toBe(400)
+    expect((await api('POST', '/ai/classify', { title: 'Tema', body: 'Sin señales claras aquí.', ai: true, provider: 'openai' })).status).toBe(400)
     // La clave se guarda sin comprobarla (comprobarla exigiría conectarse).
     expect((await api('PUT', '/ai/keys/groq', { apiKey: 'gsk-offline-test-1234' })).json).toEqual({ verified: false })
     // La IA local sigue funcionando.

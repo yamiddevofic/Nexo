@@ -2,6 +2,7 @@ import { Link } from 'wouter'
 import { ShieldCheck } from 'lucide-react'
 import type { Note } from '../../../shared/schema'
 import { QUALITY_QUESTIONS } from '../../../shared/labels'
+import { Markdown } from './Markdown'
 import { ReviewTag } from './ui'
 
 const KEYS = ['assumptions', 'counterevidence', 'scope'] as const
@@ -35,7 +36,9 @@ export function QualitySection({ note, editHref }: { note: Note; editHref: strin
           <div key={k} className="quality-item">
             <p className="quality-q">{QUALITY_QUESTIONS[k].label}</p>
             {note[k] ? (
-              <p className="quality-a">{note[k]}</p>
+              <div className="quality-a">
+                <Markdown compact>{note[k]}</Markdown>
+              </div>
             ) : (
               <p className="quality-empty">
                 Sin responder. <Link href={editHref}>Responder</Link>

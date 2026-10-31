@@ -41,27 +41,13 @@ export function AiBadge({ model, title = 'Sugerido por IA' }: { model?: string; 
   )
 }
 
-/** Selector de proveedor y modelo, con el estado de Ollama y de las claves de la nube. */
+/** Acceso rápido a la IA: un botón que abre el mismo panel que hay en Ajustes. */
 export function AiSettings({ compact }: { compact?: boolean }) {
   const choice = useAiChoice()
   const { data: status } = useAiStatus()
   const offline = !!status?.offline
   const local = choice.provider === 'ollama' || offline
-  const cloudEntries = status?.cloud ?? []
-  const cloud = cloudEntries.find((c) => c.id === choice.provider)
-  const firstCloud = cloudEntries.find((c) => c.configured)?.id ?? 'claude'
-  const cloudModels = useCloudModels(local ? 'claude' : (choice.provider as CloudProvider), !local && !!cloud?.configured)
-  const model = choice.model ?? (local ? status?.ollama.genModel : cloud?.model)
-  const label = local ? (model ?? 'Local') : `${PROVIDER_LABELS[choice.provider]}`
-  const client = useQueryClient()
-  const toggleOffline = useMutation({
-    mutationFn: (next: boolean) => aiApi.setOffline(next),
-    onSuccess: ({ offline: next }) => {
-      // Sin conexión solo queda la IA local: se cambia la elección para que todo siga funcionando.
-      if (next && choice.provider !== 'ollama') setAiChoice({ provider: 'ollama' })
-      client.invalidateQueries({ predicate: (q) => String(q.queryKey[0]).startsWith('ai-') })
-    },
-  })
+  const label = local ? (choice.model ?? status?.ollama.genModel ?? 'Local') : PROVIDER_LABELS[choice.provider]
 
   return (
     <Popover.Root>
@@ -86,6 +72,36 @@ export function AiSettings({ compact }: { compact?: boolean }) {
               </button>
             </Popover.Close>
           </div>
+          <AiPanel />
+        </Popover.Content>
+      </Popover.Portal>
+    </Popover.Root>
+  )
+}
+
+/** Proveedor, modelo, claves y modo sin conexión. Se usa en el acceso rápido y en Ajustes. */
+export function AiPanel() {
+  const choice = useAiChoice()
+  const { data: status } = useAiStatus()
+  const offline = !!status?.offline
+  const local = choice.provider === 'ollama' || offline
+  const cloudEntries = status?.cloud ?? []
+  const cloud = cloudEntries.find((c) => c.id === choice.provider)
+  const firstCloud = cloudEntries.find((c) => c.configured)?.id ?? 'claude'
+  const cloudModels = useCloudModels(local ? 'claude' : (choice.provider as CloudProvider), !local && !!cloud?.configured)
+  const model = choice.model ?? (local ? status?.ollama.genModel : cloud?.model)
+  const client = useQueryClient()
+  const toggleOffline = useMutation({
+    mutationFn: (next: boolean) => aiApi.setOffline(next),
+    onSuccess: ({ offline: next }) => {
+      // Sin conexión solo queda la IA local: se cambia la elección para que todo siga funcionando.
+      if (next && choice.provider !== 'ollama') setAiChoice({ provider: 'ollama' })
+      client.invalidateQueries({ predicate: (q) => String(q.queryKey[0]).startsWith('ai-') })
+    },
+  })
+
+  return (
+    <>
           <p className="muted small">La IA solo propone. Tú decides qué entra en tu biblioteca.</p>
 
           <div className="segmented ai-provider" role="radiogroup" aria-label="Dónde se ejecuta">
@@ -209,9 +225,7 @@ export function AiSettings({ compact }: { compact?: boolean }) {
                   ? 'indexando…'
                   : `${status.index.embedded} de ${status.index.notes} notas indexadas`}
           </p>
-        </Popover.Content>
-      </Popover.Portal>
-    </Popover.Root>
+    </>
   )
 }
 

@@ -227,6 +227,30 @@ func AIAPI(svc *ai.Service) http.Handler {
 		return nil
 	})
 
+	// Clasificar lo que se está escribiendo. Sin `ai`, es instantáneo y gratis (se llama al escribir).
+	rt.handle("POST", "/api/ai/classify", func(w http.ResponseWriter, r *http.Request, _ params) error {
+		b, err := body(w, r)
+		if err != nil {
+			return err
+		}
+		provider, model, err := choice(b)
+		if err != nil {
+			return err
+		}
+		raw, _ := json.Marshal(b)
+		var in ai.ClassifyInput
+		if json.Unmarshal(raw, &in) != nil {
+			return bad("Datos no válidos")
+		}
+		useAI, _ := b["ai"].(bool)
+		res, err := svc.Classify(r.Context(), in, useAI, provider, model)
+		if err != nil {
+			return err
+		}
+		writeJSON(w, 200, res)
+		return nil
+	})
+
 	// Respuesta en streaming: una línea JSON por evento (fuentes, texto, fin o error).
 	rt.handle("POST", "/api/ai/ask", func(w http.ResponseWriter, r *http.Request, _ params) error {
 		b, err := body(w, r)

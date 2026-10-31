@@ -116,6 +116,9 @@ export type Overview = {
   traditions: string[]
 }
 
+/** Datos de la biblioteca para Ajustes: carpeta del vault y archivos que no se pudieron leer. */
+export type Library = { vault: string; errors: { file: string; message: string }[] }
+
 // ── IA ─────────────────────────────────────────────────────────
 
 /** Proveedor elegido y, para Ollama, el modelo local concreto. */
@@ -175,6 +178,41 @@ export type CritiqueResult = {
   sourcesAssessment?: string
   sourcesConsidered: number
   model: string
+}
+
+/** Lo escrito en el editor que se clasifica; la nota puede no estar guardada todavía. */
+export type ClassifyInput = {
+  id?: string
+  title: string
+  body: string
+  author: string
+  year: string
+  url: string
+  kind: string
+  question: string
+  tradition: string
+  image: string
+  observation: string
+  context: string
+}
+
+/** Una clasificación propuesta, siempre con su motivo. */
+export type ClassifyProposal = {
+  value: string
+  confidence: number
+  reason: string
+  by: 'reglas' | 'prototipos' | 'ia'
+  /** Otras lecturas con motivo real para mostrarlas; tú eliges. */
+  alternatives?: ClassifyProposal[]
+}
+
+export type Classification = {
+  type?: ClassifyProposal
+  epistemic?: ClassifyProposal
+  areas: ClassifyProposal[]
+  /** Campos que las reglas no resolvieron. La IA solo actúa sobre estos, y solo si se le pide. */
+  uncertain: ('type' | 'epistemic' | 'areas')[]
+  model?: string
 }
 
 export type AskSource = { n: number; note: NoteSummary; excerpt: string }

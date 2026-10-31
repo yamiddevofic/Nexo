@@ -143,6 +143,12 @@ func NotesAPI(svc *nexo.Service, assets *nexo.AssetStore) http.Handler {
 	})
 
 	if assets != nil {
+		// Datos de la biblioteca para Ajustes. La ruta solo la ve esta máquina (ver LocalOnly).
+		rt.handle("GET", "/api/library", func(w http.ResponseWriter, r *http.Request, _ params) error {
+			writeJSON(w, 200, map[string]any{"vault": assets.Root, "errors": nonNil(svc.LoadErrors())})
+			return nil
+		})
+
 		rt.handle("POST", "/api/assets", func(w http.ResponseWriter, r *http.Request, _ params) error {
 			// El límite corta también las subidas sin Content-Length (por trozos).
 			r.Body = http.MaxBytesReader(w, r.Body, nexo.MaxAssetBytes+64*1024)

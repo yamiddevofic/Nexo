@@ -4,7 +4,8 @@ import { BookOpen, ImagePlus, Plus, X } from 'lucide-react'
 import { api } from '../api'
 import { useAction, useNotes, useOverview } from '../hooks'
 import { NotePicker } from './NotePicker'
-import { AutoTextarea, Button, ErrorText, assetUrl } from './ui'
+import { MarkdownEditor } from './MarkdownEditor'
+import { Button, ErrorText, assetUrl } from './ui'
 
 export type SymbolDraft = {
   tradition: string
@@ -44,27 +45,33 @@ export function SymbolFields({ value, onChange }: Props) {
             </datalist>
           </label>
 
-          <label className="field">
-            <span className="field-label">
+          <div className="field">
+            <label className="field-label" htmlFor="symbol-observation">
               1 · Observación <span className="optional">lo que aparece, sin interpretar</span>
-            </span>
-            <AutoTextarea
+            </label>
+            <MarkdownEditor
+              compact
+              id="symbol-observation"
+              label="Observación"
               value={value.observation}
-              onChange={(e) => onChange({ observation: e.target.value })}
+              onChange={(observation) => onChange({ observation })}
               placeholder="Figuras, objetos, colores, posturas, números…"
             />
-          </label>
+          </div>
 
-          <label className="field">
-            <span className="field-label">
+          <div className="field">
+            <label className="field-label" htmlFor="symbol-context">
               2 · Contexto histórico <span className="optional">de dónde viene y qué está documentado</span>
-            </span>
-            <AutoTextarea
+            </label>
+            <MarkdownEditor
+              compact
+              id="symbol-context"
+              label="Contexto histórico"
               value={value.context}
-              onChange={(e) => onChange({ context: e.target.value })}
+              onChange={(context) => onChange({ context })}
               placeholder="Época, lugar, autor o taller, usos que tuvo…"
             />
-          </label>
+          </div>
         </div>
         <ImageField value={value.image} onChange={(image) => onChange({ image })} />
       </div>
@@ -76,11 +83,12 @@ export function SymbolFields({ value, onChange }: Props) {
         <div className="list-editor">
           {interpretations.map((it, i) => (
             <div key={i} className="list-item">
-              <AutoTextarea
+              <MarkdownEditor
+                compact
+                label={`Interpretación ${i + 1}`}
                 value={it.text}
-                onChange={(e) => setInterp(i, { text: e.target.value })}
+                onChange={(text) => setInterp(i, { text })}
                 placeholder="Qué interpretación propone la fuente"
-                aria-label={`Interpretación ${i + 1}`}
               />
               <div className="list-item-meta">
                 <SourceButton value={it.source} onChange={(source) => setInterp(i, { source })} />
@@ -118,11 +126,12 @@ export function SymbolFields({ value, onChange }: Props) {
         <div className="list-editor">
           {analogies.map((a, i) => (
             <div key={i} className="list-item list-item-personal">
-              <AutoTextarea
+              <MarkdownEditor
+                compact
+                label={`Analogía ${i + 1}`}
                 value={a.text}
-                onChange={(e) => setAnalogy(i, { text: e.target.value })}
+                onChange={(text) => setAnalogy(i, { text })}
                 placeholder="Qué te sugiere"
-                aria-label={`Analogía ${i + 1}`}
               />
               <div className="list-item-meta">
                 <input

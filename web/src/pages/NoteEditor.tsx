@@ -6,9 +6,10 @@ import { DEFAULT_AREAS, EPISTEMIC, NOTE_TYPES, REVIEW } from '../../../shared/vo
 import { EPISTEMIC_LABELS, QUALITY_QUESTIONS, REVIEW_LABELS, TYPE_LABELS, areaLabel, slugify } from '../../../shared/labels'
 import { api, ApiError } from '../api'
 import { clearDraft, draftKey, loadDraft, saveDraft, timeAgo } from '../drafts'
-import { Markdown } from '../components/Markdown'
+import { ClassifySuggestions } from '../components/ClassifySuggestions'
+import { MarkdownEditor } from '../components/MarkdownEditor'
 import { SymbolFields, type SymbolDraft } from '../components/SymbolFields'
-import { AutoTextarea, Button, Empty, ErrorText, Kbd, Loading, TypeIcon } from '../components/ui'
+import { Button, Empty, ErrorText, Kbd, Loading, TypeIcon } from '../components/ui'
 import { modKey, useAction, useHotkey, useNote, useOverview } from '../hooks'
 
 const LAB_TEMPLATE = `## Observación
@@ -112,7 +113,6 @@ function EditorForm({ id, initial }: { id?: string; initial: Draft }) {
     return { value: stored.value, savedAt: stored.savedAt, changedSince: !!id && stored.base !== base }
   })
   const [draft, setDraft] = useState(() => recovered?.value ?? initial)
-  const [preview, setPreview] = useState(false)
   const [newArea, setNewArea] = useState('')
   const [, navigate] = useLocation()
   const overview = useOverview()
@@ -133,6 +133,12 @@ function EditorForm({ id, initial }: { id?: string; initial: Draft }) {
   }
 
   const set = <K extends keyof Draft>(key: K, value: Draft[K]) => setDraft((d) => ({ ...d, [key]: value }))
+  const setType = useCallback((type: NoteType) => setDraft((d) => ({ ...d, type })), [])
+  const setEpistemic = useCallback((epistemic: Epistemic) => setDraft((d) => ({ ...d, epistemic })), [])
+  const addArea = useCallback(
+    (area: string) => setDraft((d) => (d.areas.includes(area) ? d : { ...d, areas: [...d.areas, area] })),
+    [],
+  )
 
   const save = useAction(async () => {
     const { type, title, body, areas, epistemic, question, author, year, kind, url } = draft
@@ -191,7 +197,6 @@ function EditorForm({ id, initial }: { id?: string; initial: Draft }) {
   }, [id, initial.title])
 
   useAutosize(titleRef, draft.title)
-  useAutosize(bodyRef, draft.body, preview)
 
   const fields = save.error instanceof ApiError ? save.error.fields : {}
   const knownAreas = [...new Set([...DEFAULT_AREAS, ...(overview.data?.areas ?? []), ...draft.areas])]
@@ -360,42 +365,52 @@ function EditorForm({ id, initial }: { id?: string; initial: Draft }) {
       </fieldset>
 
       <div className="body-editor">
-        <div className="body-tabs">
-          <button type="button" className={!preview ? 'selected' : ''} onClick={() => setPreview(false)}>
-            Escribir
-          </button>
-          <button type="button" className={preview ? 'selected' : ''} onClick={() => setPreview(true)}>
-            Vista previa
-          </button>
-          {!preview && !draft.body.trim() && draft.type === 'note' && (
-            <button type="button" className="link-btn" onClick={() => set('body', LAB_TEMPLATE)}>
-              Usar la plantilla del laboratorio simbólico
-            </button>
-          )}
-        </div>
-        {preview ? (
-          draft.body.trim() ? (
-            <Markdown>{draft.body}</Markdown>
-          ) : (
-            <p className="muted">Nada que mostrar todavía.</p>
-          )
-        ) : (
-          <textarea
-            ref={bodyRef}
-            className="body-input"
-            value={draft.body}
-            onChange={(e) => set('body', e.target.value)}
-            placeholder={
-              draft.type === 'research'
-                ? 'Subpreguntas, plan y conclusiones provisionales…'
-                : draft.type === 'symbol'
+        <MarkdownEditor
+          ref={bodyRef}
+          label="Contenido"
+          value={draft.body}
+          onChange={(body) => set('body', body)}
+          placeholder={
+            draft.type === 'research'
+              ? 'Subpreguntas, plan y conclusiones provisionales…'
+              : draft.type === 'symbol'
                 ? 'Notas libres y, si quieres, una aplicación concreta…'
-                : 'Escribe la idea con tus palabras. Admite Markdown.'
-            }
-            aria-label="Contenido"
-          />
-        )}
+                : 'Escribe la idea con tus palabras, en Markdown.'
+          }
+          extra={
+            !draft.body.trim() && draft.type === 'note' ? (
+              <button type="button" className="link-btn md-extra" onClick={() => set('body', LAB_TEMPLATE)}>
+                Usar la plantilla del laboratorio simbólico
+              </button>
+            ) : undefined
+          }
+        />
       </div>
+
+      <ClassifySuggestions
+        draftId={key}
+        isNew={!id}
+        input={{
+          id,
+          title: draft.title,
+          body: draft.body,
+          author: draft.author,
+          year: draft.year,
+          url: draft.url,
+          kind: draft.kind,
+          question: draft.question,
+          tradition: draft.tradition,
+          image: draft.image,
+          observation: draft.observation,
+          context: draft.context,
+        }}
+        type={draft.type}
+        epistemic={draft.epistemic}
+        areas={draft.areas}
+        onType={setType}
+        onEpistemic={setEpistemic}
+        onArea={addArea}
+      />
 
       {draft.type !== 'source' && (
         <section className="quality-fields">
@@ -404,10 +419,19 @@ function EditorForm({ id, initial }: { id?: string; initial: Draft }) {
           </h2>
           <p className="muted small">Tres preguntas para comprobar si la idea resiste una revisión. Todas opcionales.</p>
           {(['assumptions', 'counterevidence', 'scope'] as const).map((k) => (
-            <label key={k} className="field">
-              <span className="field-label">{QUALITY_QUESTIONS[k].label}</span>
-              <AutoTextarea value={draft[k]} onChange={(e) => set(k, e.target.value)} placeholder={QUALITY_QUESTIONS[k].hint} />
-            </label>
+            <div key={k} className="field">
+              <label className="field-label" htmlFor={`quality-${k}`}>
+                {QUALITY_QUESTIONS[k].label}
+              </label>
+              <MarkdownEditor
+                compact
+                id={`quality-${k}`}
+                label={QUALITY_QUESTIONS[k].label}
+                value={draft[k]}
+                onChange={(text) => set(k, text)}
+                placeholder={QUALITY_QUESTIONS[k].hint}
+              />
+            </div>
           ))}
           <fieldset className="field">
             <legend>
@@ -439,11 +463,11 @@ function EditorForm({ id, initial }: { id?: string; initial: Draft }) {
   )
 }
 
-function useAutosize(ref: React.RefObject<HTMLTextAreaElement | null>, value: string, dep?: unknown) {
+function useAutosize(ref: React.RefObject<HTMLTextAreaElement | null>, value: string) {
   useLayoutEffect(() => {
     const el = ref.current
     if (!el) return
     el.style.height = 'auto'
     el.style.height = `${el.scrollHeight}px`
-  }, [ref, value, dep])
+  }, [ref, value])
 }

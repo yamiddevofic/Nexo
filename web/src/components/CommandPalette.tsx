@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Command } from 'cmdk'
 import * as Dialog from '@radix-ui/react-dialog'
 import { useLocation } from 'wouter'
-import { Home, Plus, Search, Waypoints } from 'lucide-react'
+import { Home, Plus, Search, Waypoints, Settings } from 'lucide-react'
 import type { NoteType } from '../../../shared/schema'
 import { NOTE_TYPES } from '../../../shared/vocab'
 import { TYPE_LABELS } from '../../../shared/labels'
@@ -31,6 +31,7 @@ export function CommandPalette({ open, onOpenChange }: { open: boolean; onOpenCh
     { id: 'home', label: 'Inicio', icon: <Home size={16} />, href: '/' },
     { id: 'graph', label: 'Ver grafo', icon: <Waypoints size={16} />, href: '/grafo' },
     ...NOTE_TYPES.map((t) => ({ id: `go-${t}`, label: `Ver ${TYPE_LABELS[t].many.toLowerCase()}`, icon: <TypeIcon type={t} />, href: TYPE_ROUTES[t] })),
+    { id: 'settings', label: 'Ajustes', icon: <Settings size={16} />, href: '/ajustes' },
   ].filter((a) => !q || a.label.toLowerCase().includes(q))
 
   const [selected, setSelected] = useState('')

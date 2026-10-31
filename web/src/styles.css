@@ -349,8 +349,14 @@ fieldset {
 .sidebar-foot {
   margin-top: auto;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 8px;
+}
+
+/* «Nueva nota» ocupa su fila; debajo, los accesos a IA, ajustes y tema. */
+.sidebar-foot .new-btn {
+  flex: 1 0 100%;
 }
 
 .new-btn {
@@ -1856,34 +1862,8 @@ textarea {
 
 .body-editor {
   margin-top: 28px;
+  padding-top: 10px;
   border-top: 1px solid var(--border);
-}
-
-.body-tabs {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  margin-bottom: 18px;
-}
-
-.body-tabs > button:not(.link-btn) {
-  padding: 12px 0 10px;
-  border: 0;
-  border-bottom: 2px solid transparent;
-  margin-top: -1px;
-  background: none;
-  color: var(--text-3);
-  font-size: 13.5px;
-  font-weight: 550;
-}
-
-.body-tabs > button.selected {
-  border-bottom-color: var(--text);
-  color: var(--text);
-}
-
-.body-tabs .link-btn {
-  margin-left: auto;
 }
 
 .body-input {
@@ -2907,7 +2887,8 @@ select {
   gap: 8px;
 }
 
-.ai-settings code {
+.ai-settings code,
+.settings code {
   font-size: 12px;
   padding: 1px 4px;
   border-radius: 4px;
@@ -3429,7 +3410,6 @@ select {
   font-family: var(--font-read);
   font-size: 16px;
   line-height: 1.55;
-  white-space: pre-wrap;
 }
 
 .quality-empty {
@@ -3731,6 +3711,7 @@ a.cite:hover {
 
   .sidebar-foot {
     order: 4;
+    flex-wrap: nowrap;
     margin: 0 0 0 auto;
   }
 
@@ -3883,4 +3864,272 @@ a.cite:hover {
 .segmented button:disabled {
   opacity: 0.45;
   cursor: not-allowed;
+}
+
+/* ── Ajustes ────────────────────────────────────────────────── */
+
+.settings {
+  max-width: 780px;
+}
+
+.settings-section {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 24px;
+  padding: 28px 0;
+  border-top: 1px solid var(--border);
+}
+
+.settings-section .section-title {
+  margin: 0;
+}
+
+.settings-ai {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 440px;
+}
+
+.settings-library {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 520px;
+}
+
+.vault-path {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.vault-path code {
+  overflow-wrap: anywhere;
+}
+
+.load-errors {
+  margin: 6px 0 0;
+  padding-left: 18px;
+}
+
+.shortcuts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+}
+
+.shortcuts > div {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+
+.shortcuts dt,
+.shortcut-keys {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.shortcuts dt {
+  gap: 6px;
+}
+
+.shortcuts dd {
+  margin: 0;
+  font-size: 13.5px;
+  color: var(--text-2);
+}
+
+.icon-btn.active {
+  background: var(--hover);
+  color: var(--text);
+}
+
+@media (max-width: 720px) {
+  .settings-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+}
+
+/* ── Editor Markdown ────────────────────────────────────────── */
+
+.md-editor .body-input {
+  min-height: 320px;
+}
+
+.md-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.md-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px 10px;
+}
+
+.md-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1px;
+}
+
+.md-tools .icon-btn {
+  width: 28px;
+  height: 28px;
+}
+
+.md-extra {
+  font-size: 13px;
+}
+
+.md-mode {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: auto;
+  padding: 4px 8px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-3);
+  font-size: 12.5px;
+}
+
+.md-mode:hover {
+  background: var(--hover);
+  color: var(--text);
+}
+
+/* En campos cortos la barra aparece al escribir; así el formulario sigue limpio. */
+.md-editor.compact .md-bar {
+  display: none;
+}
+
+.md-editor.compact:focus-within .md-bar,
+.md-editor.compact.previewing .md-bar {
+  display: flex;
+}
+
+.md-editor.compact .md-preview {
+  padding: 8px 11px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+
+.prose-compact {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.prose-compact > * + * {
+  margin-top: 0.5em;
+}
+
+@media (hover: none) {
+  /* Sin ratón, los botones necesitan más superficie para el dedo. */
+  .md-tools .icon-btn {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* ── Error al mostrar una página ────────────────────────────── */
+
+.crash {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 96px 24px;
+  color: var(--text);
+}
+
+.crash-detail {
+  overflow-wrap: anywhere;
+  color: var(--text-3);
+}
+
+.crash-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+/* ── Sugerencias de clasificación ───────────────────────────── */
+
+/* Fija al borde inferior mientras se escribe: debajo del texto quedaría fuera de la pantalla. */
+.classify {
+  position: sticky;
+  bottom: 12px;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 40vh;
+  overflow-y: auto;
+  margin-top: 24px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+}
+
+.classify .section-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+}
+
+.classify-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.classify-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+}
+
+.classify-text {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 8px;
+  flex: 1;
+  min-width: 0;
+  font-size: 13.5px;
+}
+
+.classify-field {
+  color: var(--text-3);
+  font-size: 12.5px;
+}
+
+.classify-reason {
+  flex-basis: 100%;
+  color: var(--text-2);
+  font-size: 12.5px;
+}
+
+.classify-doubt {
+  margin: 0;
 }

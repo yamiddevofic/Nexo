@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { keepPreviousData, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import type { NoteType } from '../../shared/schema'
 import { api } from './api'
 
 export const useOverview = () => useQuery({ queryKey: ['overview'], queryFn: api.overview })
+
+export const useLibrary = () => useQuery({ queryKey: ['library'], queryFn: api.library })
 
 export const useNotes = (type?: NoteType) => useQuery({ queryKey: ['notes', type ?? 'all'], queryFn: () => api.list(type) })
 
@@ -42,6 +44,21 @@ export function useDebounced<T>(value: T, ms: number): T {
   const [v, setV] = useState(value)
   useEffect(() => {
     const t = setTimeout(() => setV(value), ms)
+    return () => clearTimeout(t)
+  }, [value, ms])
+  return v
+}
+
+/** Como useDebounced, pero también se actualiza durante los cambios seguidos, cada `ms` como mucho. */
+export function useThrottled<T>(value: T, ms: number): T {
+  const [v, setV] = useState(value)
+  const last = useRef(0)
+  useEffect(() => {
+    // Cada cambio reprograma el mismo plazo, así que escribir sin parar no lo aplaza.
+    const t = setTimeout(() => {
+      last.current = Date.now()
+      setV(value)
+    }, Math.max(0, ms - (Date.now() - last.current)))
     return () => clearTimeout(t)
   }, [value, ms])
   return v

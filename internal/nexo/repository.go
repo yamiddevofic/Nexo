@@ -178,9 +178,10 @@ func (r *FsRepository) ReadChange(rel string) (FileChange, error) {
 		if !errors.Is(err, fs.ErrNotExist) {
 			return ignored, err
 		}
-		if r.written[file] == deleted || holder == "" {
+		if r.written[file] == deleted {
 			return ignored, nil
 		}
+		// Sin `holder` era un archivo que no se pudo leer: al desaparecer, también su error.
 		delete(r.paths, holder)
 		return FileChange{Kind: "deleted", ID: holder}, nil
 	}
