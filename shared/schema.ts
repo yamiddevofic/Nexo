@@ -45,8 +45,18 @@ export type NoteMeta = {
   // Fuentes
   author?: string
   year?: string
-  url?: string
+  subtitle?: string
+  publisher?: string
+  journal?: string
   kind?: string
+  sourceType?: string
+  accessedDate?: string
+  doi?: string
+  isbn?: string
+  volume?: string
+  issue?: string
+  pages?: string
+  url?: string
   // Investigaciones
   question?: string
   items: string[]
@@ -63,11 +73,11 @@ export type Note = NoteMeta & { body: string }
 
 type EditableKey =
   | 'type' | 'title' | 'areas' | 'epistemic' | 'review' | 'assumptions' | 'counterevidence' | 'scope' | 'origin'
-  | 'sources' | 'author' | 'url' | 'kind' | 'question' | 'items' | 'tradition' | 'image' | 'observation'
+  | 'sources' | 'author' | 'url' | 'kind' | 'subtitle' | 'publisher' | 'journal' | 'sourceType' | 'accessedDate' | 'doi' | 'isbn' | 'volume' | 'issue' | 'pages' | 'question' | 'items' | 'tradition' | 'image' | 'observation'
   | 'context' | 'interpretations' | 'analogies'
 
 /** Campos editables de una nota (sin id, fechas ni conexiones, que tienen su propio flujo). */
-export type NoteEdit = Partial<Pick<NoteMeta, EditableKey>> & { year?: string | number; body?: string }
+export type NoteEdit = Partial<Pick<NoteMeta, EditableKey>> & { year?: string | number; body?: string; subtitle?: string; publisher?: string; journal?: string; sourceType?: string; accessedDate?: string; doi?: string; isbn?: string; volume?: string; issue?: string; pages?: string }
 export type NoteCreate = NoteEdit & { title: string }
 
 // ── Formas que devuelve la API ─────────────────────────────────

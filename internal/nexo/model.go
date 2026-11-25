@@ -42,6 +42,16 @@ type Note struct {
 	Connections     []Connection     `json:"connections"`
 	Author          string           `json:"author,omitempty"`
 	Year            string           `json:"year,omitempty"`
+	Subtitle        string           `json:"subtitle,omitempty"`
+	Publisher       string           `json:"publisher,omitempty"`
+	Journal         string           `json:"journal,omitempty"`
+	SourceType      string           `json:"source_type,omitempty"`
+	AccessedDate    string           `json:"accessed_date,omitempty"`
+	DOI             string           `json:"doi,omitempty"`
+	ISBN            string           `json:"isbn,omitempty"`
+	Volume          string           `json:"volume,omitempty"`
+	Issue           string           `json:"issue,omitempty"`
+	Pages           string           `json:"pages,omitempty"`
 	URL             string           `json:"url,omitempty"`
 	Kind            string           `json:"kind,omitempty"`
 	Question        string           `json:"question,omitempty"`
@@ -64,6 +74,16 @@ func (n *Note) Clone() *Note {
 	c.Connections = append([]Connection{}, n.Connections...)
 	c.Interpretations = append([]Interpretation{}, n.Interpretations...)
 	c.Analogies = append([]Analogy{}, n.Analogies...)
+	c.Subtitle = n.Subtitle
+	c.Publisher = n.Publisher
+	c.Journal = n.Journal
+	c.SourceType = n.SourceType
+	c.AccessedDate = n.AccessedDate
+	c.DOI = n.DOI
+	c.ISBN = n.ISBN
+	c.Volume = n.Volume
+	c.Issue = n.Issue
+	c.Pages = n.Pages
 	return &c
 }
 

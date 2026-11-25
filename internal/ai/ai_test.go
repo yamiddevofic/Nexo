@@ -291,3 +291,23 @@ func TestContextWindowFitsPrompt(t *testing.T) {
 		t.Fatal("ventana de contexto mal elegida")
 	}
 }
+
+func TestContinueReturnsOnlyContinuation(t *testing.T) {
+	svc := NewService(Deps{Generator: func(string, string) (Generator, error) {
+		return fakeGenerator{reply: " y por eso el símbolo cambia."}, nil
+	}})
+	got, err := svc.Continue(context.Background(), "El tarot es un lenguaje", "ollama", "")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if got != " y por eso el símbolo cambia." {
+		t.Fatalf("%q", got)
+	}
+
+	empty := NewService(Deps{Generator: func(string, string) (Generator, error) {
+		return fakeGenerator{reply: ""}, nil
+	}})
+	if got, err := empty.Continue(context.Background(), "texto", "ollama", ""); err != nil || got != "" {
+		t.Fatalf("respuesta vacía: %q, %v", got, err)
+	}
+}

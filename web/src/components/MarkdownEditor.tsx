@@ -1,11 +1,14 @@
 import { useImperativeHandle, useLayoutEffect, useRef, useState, type KeyboardEvent, type ReactNode, type Ref } from 'react'
-import { Bold, Code, Eye, Heading2, Italic, Link2, List, ListChecks, ListOrdered, PenLine, Quote } from 'lucide-react'
+import { Bold, Code, Eye, Heading2, Italic, Link2, List, ListChecks, ListOrdered, PenLine, Quote, Sparkles } from 'lucide-react'
 import { modKey } from '../hooks'
-import { continueList, indentList, insertLink, toggleBlock, toggleCode, toggleInline, type Edit } from '../markdownEdit'
+import { continuationBody, continueList, indentList, insertLink, joinContinuation, toggleBlock, toggleCode, toggleInline, type Edit } from '../markdownEdit'
 import { Markdown } from './Markdown'
-import { AutoTextarea } from './ui'
+import { AutoTextarea, ErrorText } from './ui'
+import { aiApi } from '../ai'
+import { useAiChoice } from '../ai'
 
 type Selection = (value: string, start: number, end: number) => Edit
+type AsyncSelection = (value: string, start: number, end: number) => Promise<Edit | null>
 
 const bold: Selection = (v, s, e) => toggleInline(v, s, e, '**', 'negrita')
 const italic: Selection = (v, s, e) => toggleInline(v, s, e, '*', 'cursiva')
@@ -74,11 +77,16 @@ export function MarkdownEditor({
   const textarea = useRef<HTMLTextAreaElement>(null)
   useImperativeHandle(outer, () => textarea.current!)
   const [preview, setPreview] = useState(false)
+  const [aiBusy, setAiBusy] = useState(false)
+  const [aiError, setAiError] = useState('')
   useCaretInView(textarea, value, !compact && !preview)
+  const aiChoice = useAiChoice()
 
   const apply = (edit: Edit) => {
     const el = textarea.current
     if (!el) return
+    // Si no hay texto que insertar y no hay selección que borrar, no hacer nada.
+    if (!edit.text && edit.start === edit.end) return
     el.focus()
     el.setSelectionRange(edit.start, edit.end)
     // execCommand conserva Deshacer (Ctrl+Z); si el navegador no lo admite, se aplica directamente.
@@ -86,7 +94,7 @@ export function MarkdownEditor({
     if (done) {
       el.setSelectionRange(edit.selStart, edit.selEnd)
     } else {
-      onChange(value.slice(0, edit.start) + edit.text + value.slice(edit.end))
+      onChange(el.value.slice(0, edit.start) + edit.text + el.value.slice(edit.end))
       requestAnimationFrame(() => el.setSelectionRange(edit.selStart, edit.selEnd))
     }
   }
@@ -94,6 +102,45 @@ export function MarkdownEditor({
   const run = (tool: Selection) => {
     const el = textarea.current
     if (el) apply(tool(value, el.selectionStart, el.selectionEnd))
+  }
+
+  /**
+   * Continuación con IA. El texto original nunca se borra: la respuesta se añade después de la
+   * selección (o del cursor), que es lo que se espera al pulsar "Continuar".
+   */
+  const continueWithAi: AsyncSelection = async (v, s, e) => {
+    const { body, at } = continuationBody(v, s, e)
+    if (!body.trim()) throw new Error('Escribe o selecciona texto antes de continuar.')
+    if (!aiChoice.provider) throw new Error('Configura un proveedor de IA para continuar el texto.')
+    const { continued } = await aiApi.continue(body, aiChoice)
+    const text = joinContinuation(v.slice(0, at), body, continued ?? '')
+    if (!text) throw new Error('La IA no devolvió texto. Inténtalo de nuevo.')
+    return { start: at, end: at, text, selStart: at + text.length, selEnd: at + text.length }
+  }
+
+  /** Ejecuta una herramienta que devuelve una promesa (p. ej. continuación con IA). */
+  const runAsync = async (tool: AsyncSelection) => {
+    const el = textarea.current
+    if (!el || aiBusy) return
+    const snapshot = value
+    const start = el.selectionStart
+    const end = el.selectionEnd
+    setAiError('')
+    setAiBusy(true)
+    try {
+      const edit = await tool(snapshot, start, end)
+      if (!edit) return
+      // Si el usuario escribió mientras la IA respondía, no pisamos su texto.
+      if (textarea.current?.value !== snapshot) {
+        setAiError('El texto cambió mientras la IA respondía. Inténtalo de nuevo.')
+        return
+      }
+      apply(edit)
+    } catch (error) {
+      setAiError(error instanceof Error ? error.message : 'No se pudo continuar el texto.')
+    } finally {
+      setAiBusy(false)
+    }
   }
 
   const onKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
@@ -105,6 +152,12 @@ export function MarkdownEditor({
     else if (mod && !e.shiftKey && e.key.toLowerCase() === 'i') edit = italic(value, start, end)
     else if (e.key === 'Enter' && !mod && !e.shiftKey && start === end) edit = continueList(value, start)
     else if (e.key === 'Tab' && !mod) edit = indentList(value, start, end, e.shiftKey)
+    // Continuación IA: Cmd/Ctrl+Shift+Enter
+    else if (mod && e.shiftKey && e.key === 'Enter') {
+      e.preventDefault()
+      void runAsync(continueWithAi)
+      return
+    }
     if (edit) {
       e.preventDefault()
       apply(edit)
@@ -133,6 +186,19 @@ export function MarkdownEditor({
                 </button>
               )
             })}
+            {/* Botón de continuación IA */}
+            <button
+              type="button"
+              className="icon-btn"
+              aria-label="Continuar con IA"
+              aria-busy={aiBusy}
+              title={`Continuar con IA (${modKey}+Shift+Enter)`}
+              onMouseDown={(e) => e.preventDefault()}
+              onClick={() => void runAsync(continueWithAi)}
+              disabled={aiBusy}
+            >
+              <Sparkles size={15} className={aiBusy ? 'spin' : undefined} />
+            </button>
           </div>
         )}
         {!preview && extra}
@@ -151,12 +217,16 @@ export function MarkdownEditor({
           id={id}
           className={compact ? undefined : 'body-input'}
           value={value}
-          onChange={(e) => onChange(e.target.value)}
+          onChange={(e) => {
+            if (aiError) setAiError('')
+            onChange(e.target.value)
+          }}
           onKeyDown={onKeyDown}
           placeholder={placeholder}
           aria-label={label}
         />
       )}
+      {aiError && <ErrorText>{aiError}</ErrorText>}
     </div>
   )
 }

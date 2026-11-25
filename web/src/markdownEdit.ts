@@ -120,3 +120,24 @@ export function indentList(value: string, start: number, end: number, outdent: b
   const selStart = Math.max(from, start + delta)
   return { start: from, end: to, text, selStart, selEnd: start === end ? selStart : from + text.length }
 }
+
+/**
+ * Texto que se manda a la IA al continuar: la selección si la hay; si solo hay cursor, todo lo
+ * anterior a él. `at` es el punto donde se añadirá la continuación, para no perder el original.
+ */
+export function continuationBody(value: string, start: number, end: number) {
+  const from = start === end ? 0 : start
+  return { body: value.slice(from, end), at: end }
+}
+
+/** Une la continuación al texto previo: separa palabras y descarta un eco literal del original. */
+export function joinContinuation(before: string, body: string, text: string) {
+  let extra = text
+  const echo = body.trim()
+  if (echo.length >= 12 && extra.trimStart().startsWith(echo)) {
+    extra = extra.trimStart().slice(echo.length).replace(/^\s+/, '')
+  }
+  if (!extra.trim()) return ''
+  const last = before.at(-1) ?? ''
+  return last && !/\s/.test(last) && !/^[\s.,;:!?)\]}]/.test(extra) ? ` ${extra}` : extra
+}

@@ -147,6 +147,10 @@ export const aiApi = {
   critique: (noteId: string, choice: AiChoice, signal?: AbortSignal) =>
     post<CritiqueResult>('/api/ai/critique', { noteId, ...choice }, signal),
 
+  /** Continuación: el modelo continúa un texto dado y devuelve el resultado. */
+  continue: (body: string, choice: AiChoice) =>
+    post<{ continued: string }>('/api/ai/continue', { body, ...choice }),
+
   /** Pregunta en streaming: va entregando eventos a medida que llegan. */
   async ask(question: string, history: AskTurn[], choice: AiChoice, onEvent: (e: AskEvent) => void, signal?: AbortSignal) {
     const res = await fetch('/api/ai/ask', {

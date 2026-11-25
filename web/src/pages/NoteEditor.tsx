@@ -8,6 +8,8 @@ import { api, ApiError } from '../api'
 import { clearDraft, draftKey, loadDraft, saveDraft, timeAgo } from '../drafts'
 import { ClassifySuggestions } from '../components/ClassifySuggestions'
 import { MarkdownEditor } from '../components/MarkdownEditor'
+import { CitationMeta } from '../citations'
+import { BibliographyReference } from '../components/BibliographyReference'
 import { SymbolFields, type SymbolDraft } from '../components/SymbolFields'
 import { Button, Empty, ErrorText, Kbd, Loading, TypeIcon } from '../components/ui'
 import { modKey, useAction, useHotkey, useNote, useOverview } from '../hooks'
@@ -42,9 +44,24 @@ type Draft = {
   scope: string
   question: string
   author: string
+  authors: string[]
   year: string
+  subtitle: string
+  publisher: string
+  journal: string
   kind: string
+  sourceType: string
+  accessedDate: string
+  doi: string
+  isbn: string
+  volume: string
+  issue: string
+  pages: string
   url: string
+  tradition?: string
+  image?: string
+  observation?: string
+  context?: string
 } & SymbolDraft
 
 const EMPTY_SYMBOL: SymbolDraft = { tradition: '', image: '', observation: '', context: '', interpretations: [], analogies: [] }
@@ -61,8 +78,19 @@ const fromNote = (n: Note): Draft => ({
   scope: n.scope ?? '',
   question: n.question ?? '',
   author: n.author ?? '',
+  authors: n.author ? n.author.split(',').map((s) => s.trim()).filter((s) => s.length > 0) : [],
   year: n.year ?? '',
+  subtitle: n.subtitle ?? '',
+  publisher: n.publisher ?? '',
+  journal: n.journal ?? '',
   kind: n.kind ?? '',
+  sourceType: n.sourceType ?? '',
+  accessedDate: n.accessedDate ?? '',
+  doi: n.doi ?? '',
+  isbn: n.isbn ?? '',
+  volume: n.volume ?? '',
+  issue: n.issue ?? '',
+  pages: n.pages ?? '',
   url: n.url ?? '',
   tradition: n.tradition ?? '',
   image: n.image ?? '',
@@ -91,8 +119,19 @@ export function NoteEditor({ id }: { id?: string }) {
         areas: type === 'symbol' ? ['simbolos-arte-religion'] : [],
         question: '',
         author: '',
+        authors: [],
         year: '',
+        subtitle: '',
+        publisher: '',
+        journal: '',
         kind: '',
+        sourceType: 'Libro',
+        accessedDate: '',
+        doi: '',
+        isbn: '',
+        volume: '',
+        issue: '',
+        pages: '',
         url: '',
         assumptions: '',
         counterevidence: '',
@@ -140,8 +179,8 @@ function EditorForm({ id, initial }: { id?: string; initial: Draft }) {
     [],
   )
 
-  const save = useAction(async () => {
-    const { type, title, body, areas, epistemic, question, author, year, kind, url } = draft
+const save = useAction(async () => {
+    const { type, title, body, areas, epistemic, question, authors, subtitle, publisher, journal, kind, sourceType, accessedDate, doi, isbn, volume, issue, pages, url } = draft
     const input = {
       type,
       title,
@@ -152,7 +191,20 @@ function EditorForm({ id, initial }: { id?: string; initial: Draft }) {
         ? { review: draft.review, assumptions: draft.assumptions, counterevidence: draft.counterevidence, scope: draft.scope }
         : {}),
       ...(type === 'research' ? { question } : {}),
-      ...(type === 'source' ? { author, year, kind, url } : {}),
+      ...(type === 'source' ? { author: authors.join(', ') } : {}),
+      ...(type === 'source' ? { year: draft.year } : {}),
+      ...(type === 'source' ? { subtitle } : {}),
+      ...(type === 'source' ? { publisher } : {}),
+      ...(type === 'source' ? { journal } : {}),
+      ...(type === 'source' ? { kind } : {}),
+      ...(type === 'source' ? { sourceType } : {}),
+      ...(type === 'source' ? { accessedDate } : {}),
+      ...(type === 'source' ? { doi } : {}),
+      ...(type === 'source' ? { isbn } : {}),
+      ...(type === 'source' ? { volume } : {}),
+      ...(type === 'source' ? { issue } : {}),
+      ...(type === 'source' ? { pages } : {}),
+      ...(type === 'source' ? { url } : {}),
       ...(type === 'symbol'
         ? {
             tradition: draft.tradition,
@@ -279,29 +331,14 @@ function EditorForm({ id, initial }: { id?: string; initial: Draft }) {
       {draft.type === 'symbol' && <SymbolFields value={draft} onChange={(patch) => setDraft((d) => ({ ...d, ...patch }))} />}
 
       {draft.type === 'source' && (
-        <div className="field-grid">
-          <label className="field">
-            <span className="field-label">Autor</span>
-            <input value={draft.author} onChange={(e) => set('author', e.target.value)} />
-          </label>
-          <label className="field">
-            <span className="field-label">Año</span>
-            <input value={draft.year} onChange={(e) => set('year', e.target.value)} inputMode="numeric" />
-          </label>
-          <label className="field">
-            <span className="field-label">Formato</span>
-            <input value={draft.kind} onChange={(e) => set('kind', e.target.value)} placeholder="Libro, artículo, vídeo…" list="kinds" />
-            <datalist id="kinds">
-              {['Libro', 'Artículo', 'Vídeo', 'Documento', 'Podcast', 'Web'].map((k) => (
-                <option key={k} value={k} />
-              ))}
-            </datalist>
-          </label>
-          <label className="field">
-            <span className="field-label">Enlace</span>
-            <input value={draft.url} onChange={(e) => set('url', e.target.value)} type="url" placeholder="https://" />
-          </label>
-        </div>
+        <BibliographyReference
+          value={draft as unknown as CitationMeta}
+          onChange={(patch) => {
+            const updated = { ...draft, ...patch } as Draft
+            setDraft(updated)
+          }}
+          labels={{ authors: 'Autor', title: 'Título', subtitle: 'Subtítulo', publisher: 'Editorial', journal: 'Revista/Sitio web', sourceType: 'Tipo de fuente', year: 'Año', volume: 'Volumen', issue: 'Número', pages: 'Páginas', doi: 'DOI', isbn: 'ISBN', url: 'URL', accessedDate: 'Fecha de consulta' }}
+        />
       )}
 
       {(draft.type === 'note' || draft.type === 'concept') && (

@@ -598,6 +598,23 @@ Reglas:
 	return result, nil
 }
 
+// Continue: el modelo continúa un texto dado y devuelve el texto continuado.
+func (s *Service) Continue(ctx context.Context, bodyText, provider, model string) (string, error) {
+	gen, err := s.generator(provider, model)
+	if err != nil {
+		return "", err
+	}
+	system := `Tienes que continuar el mensaje del usuario en español, con un estilo coherente y añadiendo ideas relevantes. No repitas el texto recibido ni cites estas instrucciones: escribe solo la continuación.`
+	continued, err := gen.Stream(ctx, system, []ChatMessage{{Role: "user", Content: bodyText}}, func(t string) {})
+	if err != nil {
+		if ctx.Err() != nil {
+			return "", nil
+		}
+		return "", err
+	}
+	return continued, nil
+}
+
 // ── Preguntar a la biblioteca ──────────────────────────────────
 
 type AskSource struct {

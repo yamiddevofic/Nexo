@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { continueList, indentList, insertLink, toggleBlock, toggleCode, toggleInline, type Edit } from './markdownEdit'
+import { continuationBody, continueList, indentList, insertLink, joinContinuation, toggleBlock, toggleCode, toggleInline, type Edit } from './markdownEdit'
 
 const run = (value: string, e: Edit | null) => (e ? value.slice(0, e.start) + e.text + value.slice(e.end) : value)
 
@@ -80,5 +80,27 @@ describe('listas al escribir', () => {
   it('Tab anida y Mayús+Tab desanida', () => {
     expect(run('- a', indentList('- a', 3, 3, false))).toBe('  - a')
     expect(run('  - a', indentList('  - a', 5, 5, true))).toBe('- a')
+  })
+})
+
+describe('continuar con IA', () => {
+  it('sin selección manda lo anterior al cursor y añade ahí', () => {
+    expect(continuationBody('una idea clara', 8, 8)).toEqual({ body: 'una idea', at: 8 })
+  })
+
+  it('con selección manda solo la selección', () => {
+    expect(continuationBody('una idea clara', 4, 8)).toEqual({ body: 'idea', at: 8 })
+  })
+
+  it('separa palabras al unir y respeta la puntuación', () => {
+    expect(joinContinuation('una idea', 'x', 'clara')).toBe(' clara')
+    expect(joinContinuation('una idea ', 'x', 'clara')).toBe('clara')
+    expect(joinContinuation('una idea', 'x', ', y más')).toBe(', y más')
+  })
+
+  it('descarta un eco literal del original y rechaza respuestas vacías', () => {
+    const body = 'El tarot nació como juego de cartas'
+    expect(joinContinuation('', body, `${body} y luego se volvió simbólico`)).toBe('y luego se volvió simbólico')
+    expect(joinContinuation('texto', 'texto', '   ')).toBe('')
   })
 })

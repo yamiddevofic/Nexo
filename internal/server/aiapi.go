@@ -251,6 +251,43 @@ func AIAPI(svc *ai.Service) http.Handler {
 		return nil
 	})
 
+	// Continuación de texto: el modelo continúa el texto actual y devuelve el resultado completo.
+	rt.handle("POST", "/api/ai/continue", func(w http.ResponseWriter, r *http.Request, _ params) error {
+		b, err := body(w, r)
+		if err != nil {
+			return err
+		}
+		bodyText, _ := b["body"].(string)
+		if bodyText == "" {
+			return bad("Falta el campo «body»")
+		}
+		provider, model, err := choice(b)
+		if err != nil {
+			return err
+		}
+		continued, err := svc.Continue(r.Context(), bodyText, provider, model)
+		if err != nil {
+			if r.Context().Err() != nil {
+				return nil
+			}
+			var ae *ai.Error
+			var ne *nexo.Error
+			msg := "Error interno de la IA"
+			switch {
+			case errors.As(err, &ae):
+				msg = ae.Message
+			case errors.As(err, &ne):
+				msg = ne.Message
+			default:
+				logInternal(err)
+			}
+			writeJSON(w, 500, errorBody{Error: msg})
+			return nil
+		}
+		writeJSON(w, 200, map[string]string{"continued": continued})
+		return nil
+	})
+
 	// Respuesta en streaming: una línea JSON por evento (fuentes, texto, fin o error).
 	rt.handle("POST", "/api/ai/ask", func(w http.ResponseWriter, r *http.Request, _ params) error {
 		b, err := body(w, r)

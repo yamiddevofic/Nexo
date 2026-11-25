@@ -3987,6 +3987,21 @@ a.cite:hover {
   height: 28px;
 }
 
+.md-tools .icon-btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.md-tools .icon-btn .spin {
+  animation: md-spin 1s linear infinite;
+}
+
+@keyframes md-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .md-extra {
   font-size: 13px;
 }
